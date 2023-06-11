@@ -1,8 +1,10 @@
+import Header from '@/components/Header/header';
 import './globals.css'
 import { Outfit } from 'next/font/google'
 
 const outfit = Outfit({
-
+  weight: ['300', '400', '500', '600', '700', '800'],
+  subsets: ['latin']
 });
 
 export const metadata = {
@@ -16,8 +18,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={outfit.className}>{children}</body>
+    <html lang="pt-br">
+      <body className={outfit.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
