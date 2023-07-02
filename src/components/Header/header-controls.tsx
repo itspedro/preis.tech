@@ -1,10 +1,7 @@
-import styled from "styled-components";
-import { GithubIcon } from "./headerIcons/github-icon";
-import { LightThemeIcon } from "./headerIcons/light-theme-icon";
-
-interface HeaderControlProps {
-
-}
+import styled from 'styled-components';
+import { GithubIcon } from './headerIcons/github-icon';
+import { LightThemeIcon } from './headerIcons/light-theme-icon';
+import Link from 'next/link';
 
 function Line() {
   return (
@@ -12,7 +9,7 @@ function Line() {
       <line x1="0.5" y1="2.18557e-08" x2="0.499999" y2="12" stroke="#C0C0C0"/>
     </svg>
   );
-}
+};
 
 const ControlContainer = styled.div`
   display: flex;
@@ -21,15 +18,15 @@ const ControlContainer = styled.div`
 
   svg:not(:nth-child(2)){
     cursor: pointer;
-  }
-
+  };
 `
 
-
-function HeaderControl(props: HeaderControlProps) {
+function HeaderControl() {
   return(
     <ControlContainer>
-      <GithubIcon />
+      <Link href="https://github.com/itsPedro">
+        <GithubIcon />
+      </Link>
       <Line />
       <LightThemeIcon />
     </ControlContainer>

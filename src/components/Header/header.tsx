@@ -1,29 +1,31 @@
-"use client"
+'use client';
 
 import { styled } from "styled-components";
 import HeaderItems from "./header-items";
-import HeaderButton from "./header-button";
 import HeaderControl from "./header-controls";
-
-interface HeaderProps {
-
-};
 
 const TagHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 14px;
-  margin: 30px 110px;
+  margin: 2% 5%;
   height: 65px;
 
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   background-color: #FFFFFF;
+
+  @media (max-width: 768px) {
+    margin: 2% 2%;
+  }
 `
 
 const HeaderContainer = styled.div`
-  height: 175px;
+  height: 65px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
 `
 
 const LeftHeader = styled.div`
@@ -38,29 +40,32 @@ const RightHeader = styled.div`
   gap: 20px;
 `
 
-
 const Logo = styled.a`
   font-style: normal;
   font-weight: 800;
   font-size: 18px;
   line-height: 23px;
   cursor: pointer;
+  color: var(--text-color);
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  };
 `
   
 const LogoDetail = styled.span`
   color: var(--second-green);
 `
 
-function Header(props: HeaderProps) {
-  const logoText = '</> preis'
+function Header(){
+
   return (
     <HeaderContainer>
       <TagHeader>
         <LeftHeader>
-          <Logo>{logoText}<LogoDetail>tech</LogoDetail></Logo>
-          <HeaderItems />
-          <HeaderButton />
+          <Logo>preis<LogoDetail>tech</LogoDetail></Logo>
         </LeftHeader>
+          <HeaderItems />
         <RightHeader>
           <HeaderControl />
         </RightHeader>
