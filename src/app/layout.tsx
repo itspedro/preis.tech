@@ -1,6 +1,7 @@
 import Header from '@/components/Header/header';
 import './globals.css';
 import { Outfit } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
 const outfit = Outfit({
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={outfit.className}>
         <Header />
         {children}
+        <Analytics />
       </body>
     </html>
   )
