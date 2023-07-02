@@ -1,17 +1,19 @@
 :root {
   --border-radius: 12px;
   --second-green: #55BDB3;
+  --text-color: #0F2435;
+  --text-color-light: #C4C4C4;
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  text-decoration: none;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color:#FAFAE9;
 }
