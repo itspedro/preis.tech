@@ -1,6 +1,6 @@
 import Header from '@/components/Header/header';
-import './globals.css'
-import { Outfit } from 'next/font/google'
+import './globals.css';
+import { Outfit } from 'next/font/google';
 
 const outfit = Outfit({
   weight: ['300', '400', '500', '600', '700', '800'],
