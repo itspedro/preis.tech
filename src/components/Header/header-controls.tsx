@@ -58,7 +58,7 @@ function HeaderControl() {
       </Link>
       <Line />
       <ToggleThemeButton onClick={toggleTheme}>
-        {theme == 'light' ? <DarkThemeIcon /> : <LightThemeIcon />}
+        {theme === 'light' ? <DarkThemeIcon /> : <LightThemeIcon />}
       </ToggleThemeButton>
     </ControlContainer>
   );
