@@ -9,14 +9,13 @@ import { createContext } from 'react';
 
 
 export const ThemeContext = createContext({
-  theme: lightTheme.title,
+  theme: String,
   toggleTheme: () => {}
 });
 
 interface ThemeProviderWrapperProps {
   children: React.ReactNode;
 };
-
 
 export function ThemeProviderWrapper({ children }: ThemeProviderWrapperProps) {
 
