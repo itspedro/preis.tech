@@ -9,7 +9,7 @@ import { createContext } from 'react';
 
 
 export const ThemeContext = createContext({
-  theme: String,
+  theme: lightTheme.title,
   toggleTheme: () => {}
 });
 
