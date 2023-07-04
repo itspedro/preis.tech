@@ -1,8 +1,9 @@
 'use client';
 
-import { styled } from "styled-components";
-import HeaderItems from "./header-items";
-import HeaderControl from "./header-controls";
+import { styled } from 'styled-components';
+import HeaderItems from './header-items';
+import HeaderControl from './header-controls';
+import Link from 'next/link';
 
 const TagHeader = styled.div`
   display: flex;
@@ -40,7 +41,7 @@ const RightHeader = styled.div`
   gap: 20px;
 `
 
-const Logo = styled.a`
+const Logo = styled.div`
   font-style: normal;
   font-weight: 800;
   font-size: 18px;
@@ -57,13 +58,15 @@ const LogoDetail = styled.span`
   color: ${props => props.theme.primary};
 `
 
-function Header(props: any){
+function Header(){
 
   return (
     <HeaderContainer>
       <TagHeader>
         <LeftHeader>
-          <Logo>preis<LogoDetail>tech</LogoDetail></Logo>
+          <Link href="/">
+            <Logo>preis<LogoDetail>tech</LogoDetail></Logo>
+          </Link>
         </LeftHeader>
           <HeaderItems />
         <RightHeader>

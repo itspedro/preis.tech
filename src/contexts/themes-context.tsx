@@ -3,13 +3,12 @@
 import { ThemeProvider } from 'styled-components';
 import { lightTheme } from '@/styles/themes/light';
 import { darkTheme } from '@/styles/themes/dark';
-
 import usePersistedState from '@/hooks/usePersistedState';
 import { createContext } from 'react';
 
 
 export const ThemeContext = createContext({
-  theme: lightTheme.title,
+  themeTitle: lightTheme.title,
   toggleTheme: () => {}
 });
 
@@ -27,7 +26,7 @@ export function ThemeProviderWrapper({ children }: ThemeProviderWrapperProps) {
 
   return (
     <ThemeProvider theme={theme.colors}>
-      <ThemeContext.Provider value={{ theme: theme.title, toggleTheme }}>
+      <ThemeContext.Provider value={{ themeTitle: theme.title, toggleTheme }}>
         {children}
       </ThemeContext.Provider>
     </ThemeProvider>

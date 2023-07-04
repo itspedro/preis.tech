@@ -1,19 +1,17 @@
 import { useState, useEffect } from 'react';
 
-
 function usePersistedState(key: string, initialState: any) {
 
-  const isBrowser = typeof window !== 'undefined';
+  const isClient = typeof window !== 'undefined';
 
   const [state, setState] = useState(() => {
-    if (!isBrowser) return initialState;
+    
+    const storageValue = isClient && localStorage.getItem(key);
 
-    const storageValue = localStorage.getItem(key);
     if (storageValue) {
       return JSON.parse(storageValue);
-    } else {
-      return initialState;
-    }
+    };
+    return initialState;
   });
   
   useEffect(() => {

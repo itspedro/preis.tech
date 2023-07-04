@@ -47,7 +47,7 @@ const Icons = styled.div`
 
 function HeaderControl() {
 
-  const { theme, toggleTheme } = useTheme();
+  const { themeTitle, toggleTheme } = useTheme();
 
   return(
     <ControlContainer>
@@ -58,7 +58,7 @@ function HeaderControl() {
       </Link>
       <Line />
       <ToggleThemeButton onClick={toggleTheme}>
-        {theme === 'light' ? <DarkThemeIcon /> : <LightThemeIcon />}
+        {themeTitle === 'light' ? <DarkThemeIcon /> : <LightThemeIcon />}
       </ToggleThemeButton>
     </ControlContainer>
   );
