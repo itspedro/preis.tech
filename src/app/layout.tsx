@@ -2,6 +2,7 @@ import Header from '@/components/Header/header';
 import './globals.css';
 import { Outfit } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
+import { ThemeProviderWrapper } from '@/contexts/themes-context';
 
 const outfit = Outfit({
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -11,20 +12,25 @@ const outfit = Outfit({
 export const metadata = {
   title: 'preis.tech',
   description: 'A personal developer website',
-}
+  icon: '/icon.png'
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+interface RootLayoutProps {
+  children: React.ReactNode;
+};
+
+function RootLayout({children}: RootLayoutProps) {
   return (
     <html lang="pt-br">
       <body className={outfit.className}>
-        <Header />
-        {children}
-        <Analytics />
+        <ThemeProviderWrapper>
+          <Header />
+          {children}
+          <Analytics />
+        </ThemeProviderWrapper>
       </body>
     </html>
-  )
-}
+  );
+};
+
+export default RootLayout;
