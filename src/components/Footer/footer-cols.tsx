@@ -4,7 +4,7 @@ import styled from "styled-components";
 interface LinksProps {
   name: string;
   url: string;
-}
+};
 
 interface FooterColsProps {
   title: string;
@@ -17,7 +17,7 @@ const FooterColContainer = styled.div`
   gap: 10px;
 `
 
-const FooterColItem = styled.a`
+const FooterColItem = styled.div`
   color: #FFF;
   font-size: 14px;
   font-family: inherit;

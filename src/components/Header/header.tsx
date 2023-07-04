@@ -14,11 +14,11 @@ const TagHeader = styled.div`
 
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  background-color: #FFFFFF;
+  background-color: ${props => props.theme.background};
 
   @media (max-width: 768px) {
     margin: 2% 2%;
-  }
+  };
 `
 
 const HeaderContainer = styled.div`
@@ -46,7 +46,7 @@ const Logo = styled.a`
   font-size: 18px;
   line-height: 23px;
   cursor: pointer;
-  color: var(--text-color);
+  color: ${props => props.theme.text};
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -54,10 +54,10 @@ const Logo = styled.a`
 `
   
 const LogoDetail = styled.span`
-  color: var(--second-green);
+  color: ${props => props.theme.primary};
 `
 
-function Header(){
+function Header(props: any){
 
   return (
     <HeaderContainer>

@@ -17,14 +17,14 @@ const NavList = styled.nav`
   };
 `
 
-const NavItem = styled.a`
+const NavItem = styled.div`
   font-family: inherit;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
   list-style: none;
   cursor: pointer;
-  color: var(--text-color);
+  color: ${props => props.theme.text};
 
   &:not(:hover) {
     opacity: 0.6;

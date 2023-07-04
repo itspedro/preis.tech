@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { GithubIcon } from './headerIcons/github-icon';
 import { LightThemeIcon } from './headerIcons/light-theme-icon';
 import Link from 'next/link';
+import useTheme from '@/hooks/useTheme';
+import { DarkThemeIcon } from './headerIcons/dark-theme-icon';
 
 function Line() {
   return (
@@ -21,16 +23,46 @@ const ControlContainer = styled.div`
   };
 `
 
+const ToggleThemeButton = styled.button`
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+  color: ${props => props.theme.text};
+
+  &:hover {
+    background-color: rgba(85, 189, 179, 0.1);
+  };
+  &:active {
+    scale: 0.96;
+    border: none;
+  };
+`
+
+const Icons = styled.div`
+  color: ${props => props.theme.text};
+  text-decoration: none;
+`
+
 function HeaderControl() {
+
+  const { theme, toggleTheme } = useTheme();
+
   return(
     <ControlContainer>
       <Link href="https://github.com/itsPedro">
-        <GithubIcon />
+        <Icons>
+          <GithubIcon />
+        </Icons>
       </Link>
       <Line />
-      <LightThemeIcon />
+      <ToggleThemeButton onClick={toggleTheme}>
+        {theme == 'light' ? <DarkThemeIcon /> : <LightThemeIcon />}
+      </ToggleThemeButton>
     </ControlContainer>
   );
+
 };
 
 export default HeaderControl;

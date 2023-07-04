@@ -23,7 +23,7 @@ const ContentRoot = styled.div`
 
 const Title = styled.h1`
   font-size: 40px;
-  color: var(--text-color);
+  color: ${props => props.theme.text};
   font-family: inherit;
   font-style: normal;
   font-weight: 800;
@@ -40,7 +40,7 @@ const Name = styled.span`
 `
 
 const Text = styled.p`
-  color: var(--text-color);
+  color: ${props => props.theme.text};
   font-size: 14px;
   font-family: inherit;
   font-style: normal;
