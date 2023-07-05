@@ -3,6 +3,7 @@ import './globals.css';
 import { Outfit } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProviderWrapper } from '@/contexts/themes-context';
+import StyledComponentsRegistry from '@/app/lib/registry'
 
 const outfit = Outfit({
   weight: ['300', '400', '500', '600', '700', '800'],
@@ -23,11 +24,13 @@ function RootLayout({children}: RootLayoutProps) {
   return (
     <html lang="pt-br">
       <body className={outfit.className}>
-        <ThemeProviderWrapper>
-          <Header />
-          {children}
-          <Analytics />
-        </ThemeProviderWrapper>
+        <StyledComponentsRegistry>
+          <ThemeProviderWrapper>
+            <Header />
+            {children}
+            <Analytics />
+          </ThemeProviderWrapper>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
