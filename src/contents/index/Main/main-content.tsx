@@ -1,9 +1,9 @@
 import React from 'react';
-import { ShakingHandIcon } from './mainIcons/shaking-hand-icon';
+import { ShakingHandIcon } from '@/components/icons/shaking-hand-icon';
 import styled from 'styled-components';
 import ToolBox from './main-toolbox';
 import MainButtons from './main-buttons';
-import { QuoteIcon } from './mainIcons/quote-icon';
+import { QuoteIcon } from '@/components/icons/quote-icon';
 
 const ContentRoot = styled.div`
   display: flex;

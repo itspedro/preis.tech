@@ -1,10 +1,10 @@
-import { styled } from 'styled-components';
-import { TypeScriptIcon } from './mainIcons/typescript-icon';
 import React from 'react';
-import { NextIcon } from './mainIcons/next-icon';
-import { TailWindIcon } from './mainIcons/tailwind-icon';
-import { ReactIcon } from './mainIcons/react-icon';
-import { FigmaIcon } from './mainIcons/figma-icon';
+import { styled } from 'styled-components';
+import { TypeScriptIcon } from '@/components/icons/typescript-icon';
+import { NextIcon } from '@/components/icons/next-icon';
+import { TailWindIcon } from '@/components/icons/tailwind-icon';
+import { ReactIcon } from '@/components/icons/react-icon';
+import { FigmaIcon } from '@/components/icons/figma-icon';
 
 
 const ToolBoxContent = styled.div`

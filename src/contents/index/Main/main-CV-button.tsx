@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { ButtonIcon } from '@/components/Header/headerIcons/button-icon';
+import { ButtonIcon } from '@/components/icons/button-icon';
 import Link from 'next/link';
 
 const ButtonContainer = styled.div`
