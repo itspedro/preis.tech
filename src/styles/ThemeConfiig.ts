@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import svgToMiniDataURI from 'mini-svg-data-uri';
 
 export const GlobalStyles = createGlobalStyle`
     body {
