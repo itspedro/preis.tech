@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import { GithubIcon } from "../Header/headerIcons/github-icon";
-import { InstagramIcon } from "../Header/headerIcons/instagram-icon";
 
 const Icons = styled.div`
   display: flex;
