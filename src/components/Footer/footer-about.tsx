@@ -12,7 +12,7 @@ const Container = styled.div`
 
 const Title = styled.h3`
   color: ${props => props.theme.text80};
-  font-size: 10px;
+  font-size: 13px;
   font-family: inherit;
   font-style: normal;
   font-weight: 700;
@@ -22,7 +22,7 @@ const Title = styled.h3`
 
 const Text = styled.p`
   color: ${props => props.theme.text};
-  font-size: 10px;
+  font-size: 12px;
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
