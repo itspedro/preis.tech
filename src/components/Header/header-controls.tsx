@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { GithubIcon } from './headerIcons/github-icon';
-import { LightThemeIcon } from './headerIcons/light-theme-icon';
+import { GithubIcon } from '@/components/icons/github-icon';
+import { LightThemeIcon } from '@/components/icons/light-theme-icon';
 import Link from 'next/link';
 import useTheme from '@/hooks/useTheme';
-import { DarkThemeIcon } from './headerIcons/dark-theme-icon';
+import { DarkThemeIcon } from '@/components/icons/dark-theme-icon';
 
 function Line() {
   return (

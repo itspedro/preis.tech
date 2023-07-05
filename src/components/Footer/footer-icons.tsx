@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { GithubIcon } from "../Header/headerIcons/github-icon";
+import { GithubIcon } from "@/components/icons/github-icon";
 
 const Icons = styled.div`
   display: flex;

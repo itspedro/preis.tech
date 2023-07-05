@@ -5,13 +5,9 @@ import HeaderItems from './header-items';
 import HeaderControl from './header-controls';
 import Link from 'next/link';
 import useOnScroll from '@/hooks/useOnScroll';
+import { addOpacity } from '@/utils/misc';
 
-function addOpacity(color: string, opacity: number) {
-  const opacityHex = Math.round(opacity * 255).toString(16);
-  return `${color}${opacityHex}`;
-} 
-
-const TagHeader = styled.div<{ isScrolling: boolean }>`
+const TagHeader = styled.div<{ $isScrolling: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,7 +18,7 @@ const TagHeader = styled.div<{ isScrolling: boolean }>`
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   background-color: ${props => props.theme.secondary};
-  ${props => props.isScrolling && `
+  ${props => props.$isScrolling && `
     background-color: ${addOpacity(props.theme.secondary, 0.8)};
     backdrop-filter: blur(10px);
   `};
@@ -71,11 +67,11 @@ const LogoDetail = styled.span`
 
 function Header(){
 
-  const isScrolling = useOnScroll(0);
+  const isScrolling = useOnScroll();
 
   return (
     <HeaderContainer>
-      <TagHeader isScrolling={isScrolling}>
+      <TagHeader $isScrolling={isScrolling}>
         <LeftHeader>
           <Link href="/">
             <Logo>preis<LogoDetail>tech</LogoDetail></Logo>
