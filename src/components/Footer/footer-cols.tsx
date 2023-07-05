@@ -18,30 +18,33 @@ const FooterColContainer = styled.div`
 `
 
 const FooterColItem = styled.div`
-  color: #FFF;
-  font-size: 14px;
-  font-family: inherit;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  letter-spacing: 0.7px;
-  text-decoration: none !important;
-  transition: 0.3s;
-  cursor: pointer;
-`
-
-const FooterColTitle = styled.h3`
-  color: #FFF;
-  font-size: 16px;
+  color: ${props => props.theme.textLight};
+  font-size: 10px;
   font-family: inherit;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.8px;
-  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: ${props => props.theme.textBold};
+  };
 `
 
-function FooterCols(props: FooterColsProps) {
+const FooterColTitle = styled.h3`
+  color: ${props => props.theme.text80};
+  font-size: 10px;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.8px;
+`
+
+function FooterCol(props: FooterColsProps) {
 
   return (
     <FooterColContainer>
@@ -51,12 +54,11 @@ function FooterCols(props: FooterColsProps) {
           <Link key={index} href={link.url}>
             <FooterColItem key={index}>{link.name}</FooterColItem>
           </Link>
-        );
-        }
-        )};
+        )
+      })}
     </FooterColContainer>
 
   );
 };
 
-export default FooterCols;
+export default FooterCol;
