@@ -29,7 +29,7 @@ const ToggleThemeButton = styled.button`
   cursor: pointer;
   padding: 8px;
   border-radius: 10px;
-  color: ${props => props.theme.text};
+  color: ${props => props.theme.textBold};
 
   &:hover {
     background-color: rgba(85, 189, 179, 0.1);
@@ -41,7 +41,7 @@ const ToggleThemeButton = styled.button`
 `
 
 const Icons = styled.div`
-  color: ${props => props.theme.text};
+  color: ${props => props.theme.icons};
   text-decoration: none;
 `
 

@@ -24,7 +24,7 @@ const NavItem = styled.div`
   line-height: 18px;
   list-style: none;
   cursor: pointer;
-  color: ${props => props.theme.text};
+  color: ${props => props.theme.textBold};
 
   &:not(:hover) {
     opacity: 0.6;

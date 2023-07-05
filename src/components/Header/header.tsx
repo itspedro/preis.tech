@@ -4,8 +4,14 @@ import { styled } from 'styled-components';
 import HeaderItems from './header-items';
 import HeaderControl from './header-controls';
 import Link from 'next/link';
+import useOnScroll from '@/hooks/useOnScroll';
 
-const TagHeader = styled.div`
+function addOpacity(color: string, opacity: number) {
+  const opacityHex = Math.round(opacity * 255).toString(16);
+  return `${color}${opacityHex}`;
+} 
+
+const TagHeader = styled.div<{ isScrolling: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,7 +21,11 @@ const TagHeader = styled.div`
 
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  background-color: ${props => props.theme.background};
+  background-color: ${props => props.theme.secondary};
+  ${props => props.isScrolling && `
+    background-color: ${addOpacity(props.theme.secondary, 0.8)};
+    backdrop-filter: blur(10px);
+  `};
 
   @media (max-width: 768px) {
     margin: 2% 2%;
@@ -47,7 +57,7 @@ const Logo = styled.div`
   font-size: 18px;
   line-height: 23px;
   cursor: pointer;
-  color: ${props => props.theme.text};
+  color: ${props => props.theme.textBold};
 
   @media (max-width: 768px) {
     font-size: 16px;
@@ -58,11 +68,14 @@ const LogoDetail = styled.span`
   color: ${props => props.theme.primary};
 `
 
+
 function Header(){
+
+  const isScrolling = useOnScroll(0);
 
   return (
     <HeaderContainer>
-      <TagHeader>
+      <TagHeader isScrolling={isScrolling}>
         <LeftHeader>
           <Link href="/">
             <Logo>preis<LogoDetail>tech</LogoDetail></Logo>

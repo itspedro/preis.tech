@@ -23,7 +23,7 @@ const ContentRoot = styled.div`
 
 const Title = styled.h1`
   font-size: 40px;
-  color: ${props => props.theme.text};
+  color: ${props => props.theme.textBold};
   font-family: inherit;
   font-style: normal;
   font-weight: 800;
