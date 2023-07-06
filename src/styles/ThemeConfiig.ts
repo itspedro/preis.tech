@@ -1,7 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        border: none;
+        text-decoration: none;
+    };
+
     body {
+        overflow-x: initial;
         background-color: ${props => props.theme.background};
         color: ${props => props.theme.textBold};
         background-size: 40px 40px;
