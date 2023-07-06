@@ -26,7 +26,6 @@ function RootLayout({children}: RootLayoutProps) {
       <body className={outfit.className}>
         <StyledComponentsRegistry>
           <ThemeProviderWrapper>
-            <Header />
             {children}
             <Analytics />
           </ThemeProviderWrapper>
