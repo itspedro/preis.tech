@@ -9,8 +9,13 @@ const FooterRoot = styled.footer`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 300px;
-  background: linear-gradient(180deg, transparent, ${props => props.theme.tertiary});
+  max-height: 300px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, ${props => props.theme.secondary});
+
+  @media (max-width: 768px) {
+    max-height: 500px;
+  };
 `
 
 const FooterContent = styled.div`
@@ -38,8 +43,8 @@ const FooterCopy = styled.div`
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #C9C9C9;
-  height: 30px;
-  align-items: flex-end;
+  height: 40px;
+  align-items: center;
 
   @media (max-width: 768px) {
     width: 80%;
@@ -58,6 +63,7 @@ const Copy = styled.p`
 
 
 function Footer() {
+  const code = '</>';
   return (
     <FooterRoot>
       <FooterContent>
@@ -105,7 +111,7 @@ function Footer() {
       </FooterContent>
       <FooterCopy>
         <Copy>© 2023 Pedro Reis.</Copy>
-        <Copy>Veja a última versão no GitHub.</Copy>
+        <Copy>{code}</Copy>
       </FooterCopy>
     </FooterRoot>
   );

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styled from "styled-components";
+import Link from 'next/link';
+import styled from 'styled-components';
 
 interface LinksProps {
   id: number;
@@ -15,6 +15,12 @@ interface FooterColsProps {
 };
 
 const FooterColContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`
+
+const Links = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -54,7 +60,7 @@ const FooterColTitle = styled.h3`
   letter-spacing: 0.8px;
 `
 
-const SoonLabel = styled.span`
+const Label = styled.span`
   color: ${props => props.theme.textLight};
   font-size: 10px;
   font-family: inherit;
@@ -71,29 +77,30 @@ const SoonLabel = styled.span`
 
 
 function FooterCol(props: FooterColsProps) {
-
   return (
     <FooterColContainer key={props.title}>
       <FooterColTitle>{props.title}</FooterColTitle>
-      {props.links.map((link) => {
-        link.$soon = link.$soon ?? false;
-        link.$new = link.$new ?? false;
-        return (
-          <Link key={link.id} href={!link.$soon ? link.url : ''}>
-            <FooterColItem 
-              $soon={link.$soon}
-              $new={link.$new}
-            >
-              {link.name}
-              {link.$soon || link.$new ? (
-                <SoonLabel>
-                  {link.$soon ? 'Em Breve' : 'Novo!'}
-                </SoonLabel>
-              ): null}
-            </FooterColItem>
-          </Link>
-        )
-      })}
+      <Links>
+        {props.links.map((link) => {
+          link.$soon = link.$soon ?? false;
+          link.$new = link.$new ?? false;
+          return (
+            <Link key={link.id} href={!link.$soon ? link.url : ''} passHref>
+              <FooterColItem 
+                $soon={link.$soon}
+                $new={link.$new}
+                >
+                {link.name}
+                {link.$soon || link.$new ? (
+                  <Label>
+                    {link.$soon ? 'Em Breve' : 'Novo!'}
+                  </Label>
+                ): null}
+              </FooterColItem>
+            </Link>
+          )
+        })}
+      </Links>
     </FooterColContainer>
   );
 };

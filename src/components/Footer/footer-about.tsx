@@ -1,5 +1,6 @@
-import { styled } from "styled-components";
-import FooterIcons from "./footer-icons";
+import { styled } from 'styled-components';
+import FooterIcons from './footer-icons';
+import Link from 'next/link';
 
 
 const Container = styled.div`
@@ -34,7 +35,9 @@ function FooterSobre() {
     <Container>
       <Title>Sobre Mim</Title>
       <Text>Um desenvolvedor Font-End que adora novos desafios e pensar fora da caixa.</Text>
-      <FooterIcons/>
+      <Link href="https://github.com/itsPedro">
+        <FooterIcons/>
+      </Link>
     </Container>
   );
 };
