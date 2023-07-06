@@ -30,6 +30,9 @@ const ToggleThemeButton = styled.button`
   padding: 8px;
   border-radius: 10px;
   color: ${props => props.theme.textBold};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: rgba(85, 189, 179, 0.1);
@@ -37,12 +40,16 @@ const ToggleThemeButton = styled.button`
   &:active {
     scale: 0.96;
     border: none;
+    
   };
 `
 
 const Icons = styled.div`
   color: ${props => props.theme.icons};
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
 function HeaderControl() {

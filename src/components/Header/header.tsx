@@ -28,7 +28,7 @@ const TagHeader = styled.div<{ $isScrolling: boolean }>`
   };
 `
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   height: 65px;
   width: 100%;
   position: fixed;
