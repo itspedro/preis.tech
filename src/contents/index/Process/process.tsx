@@ -20,17 +20,17 @@ const CardContainer = styled.div`
   gap: 10px;
 `
 
-const Preview = styled.div`
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, ${props => props.theme.secondary});
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 50px;
+// const Preview = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   background: linear-gradient(180deg, transparent, ${props => props.theme.secondary});
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-direction: column;
+//   gap: 50px;
 
-`
+// `
 
 
 function ProcessSection() {
