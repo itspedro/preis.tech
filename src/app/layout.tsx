@@ -1,9 +1,8 @@
-import Header from '@/components/Header/header';
 import './globals.css';
 import { Outfit } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProviderWrapper } from '@/contexts/themes-context';
-import StyledComponentsRegistry from '@/app/lib/registry'
+import StyledComponentsRegistry from '@/lib/registry'
 
 const outfit = Outfit({
   weight: ['300', '400', '500', '600', '700', '800'],
