@@ -1,3 +1,5 @@
+import Footer from '@/components/Footer/footer';
+import Header from '@/components/Header/header';
 import BlogContent from '@/contents/blog/blog';
 import { getSortedPosts } from '@/lib/posts'
 
@@ -7,7 +9,11 @@ export default function Blog() {
 
   return (
    <main>
-    <BlogContent posts={posts}/>
+    <Header />
+    <div>
+      <BlogContent posts={posts}/>
+    </div>
+    <Footer />
    </main>
   )
 }
