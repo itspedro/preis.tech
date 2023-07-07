@@ -96,14 +96,13 @@ function Footer() {
               { 
                 id: 4,
                 name: "Blog",
-                url: "",
-                $soon: true
+                url: "/blog",
+                $new: true
               },
               {
                 id: 5,
                 name: "Código Fonte",
                 url: "https://github.com/itsPedro/preis.tech",
-                $new: true
               }
             ]}
             />

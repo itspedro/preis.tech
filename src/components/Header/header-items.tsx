@@ -38,7 +38,7 @@ const NavItem = styled.div`
 function HeaderItems() {
   return (
     <NavList>
-      <Link href="/">
+      <Link href="/blog">
         <NavItem>Blog</NavItem>
       </Link>
       <Link href="https:/github.com/itsPedro?tab=repositories">
