@@ -7,7 +7,7 @@ import { addOpacity } from '@/utils/misc';
 
 const MainRoot = styled.div`
   width: 100%;
-  height: 730px;
+  height: 800px;
   background: linear-gradient(360deg, transparent, ${props => addOpacity(props.theme.primary, 0.2)});
   display: flex;
   align-items: center;

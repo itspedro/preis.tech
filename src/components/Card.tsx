@@ -4,7 +4,7 @@ interface CardProps {
   number: number;
   title: string;
   description: string;
-  icon: React.ReactNode;
+  date: string;
 };
 
 const CardContainer = styled.button`
@@ -14,13 +14,13 @@ const CardContainer = styled.button`
   gap: 16px;
   border-radius: 16px;
   padding: 4px 8px;
-  max-width: 400px;
   border: 1px solid ${props => props.theme.secondary};
   width: 100%;
   text-align: left;
   background-color: ${props => props.theme.secondary};
   color: ${props => props.theme.textLight};
   transition: 0.3s;
+  cursor: pointer;
 
   &:hover {
     border: 1px solid ${props => props.theme.primary};
@@ -61,6 +61,7 @@ function CardComponent(props: CardProps) {
       <CardContent>
         <Title>{props.title}</Title>
         <Description>{props.description}</Description>
+        <Description>{props.date}</Description>
       </CardContent>
     </CardContainer>
   );
