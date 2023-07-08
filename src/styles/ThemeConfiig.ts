@@ -8,6 +8,8 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         border: none;
         text-decoration: none;
+        list-style: none;
+        outline: none;
     };
 
     body {
