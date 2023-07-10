@@ -4,7 +4,7 @@ import CardComponent from '@/components/Card';
 import React from 'react';
 import styled from 'styled-components';
 import PreviewTitle from './preview-title';
-import { Post } from '../blog';
+import { Post } from '@/types/blog';
 import Link from 'next/link';
 
 
