@@ -2,14 +2,7 @@
 
 import styled from 'styled-components';
 import PreviewSection from './Preview/preview';
-export interface Post {
-  slug: string;
-  data: {
-    title: string;
-    description: string;
-    date: string;
-  }
-};
+import { Post } from '@/types/blog';
 
 const Container = styled.div`
   display: flex;
@@ -19,7 +12,6 @@ const Container = styled.div`
   gap: 20px;
   padding: 200px 16px;
 `
-
 interface BlogProps {
   posts: Post[];
 };
