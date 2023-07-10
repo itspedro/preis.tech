@@ -8,20 +8,43 @@ const Container = styled.article`
   width: 50%;
   margin: 0 auto;
   font-family: inherit;
-  padding: 10% 16px;
   font-weight: 400;
   line-height: 1.8;
+  margin-bottom: 20px;
 
   @media (max-width: 768px) {
     width: 90%;
-    padding: 20% 16px;
   };
 
   h1 {
     font-family: inherit;
     font-size: 32px;
     font-weight: 600;
+    margin-bottom: 20px;
   };
+
+  .autolink-header {
+    color: ${props => props.theme.text};
+    text-decoration: none;
+    display: inline-block;
+    
+
+    &:hover {
+      color: ${props => props.theme.primary};
+    };
+  }
+
+  .visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+  }
 
   blockquote {
     font-size: 18px;
@@ -66,9 +89,15 @@ const Container = styled.article`
   };
 
   img {
-    width: 100%;
-    height: auto;
-    margin: 20px 0; 
+    max-width: 500px;
+    margin: 16px auto;
+    border-radius: 4px;
+  };
+
+  iframe {
+    max-width: 100%;
+    margin: 16px auto;
+    aspect-ratio: auto;
     border-radius: 4px;
   };
 
@@ -76,7 +105,7 @@ const Container = styled.article`
 
 interface MDXstyleProps {
   children: React.ReactNode;
-}
+};
 
 function MDXstyle({ children }: MDXstyleProps) {
   return (
