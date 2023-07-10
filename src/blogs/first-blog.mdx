@@ -2,35 +2,53 @@
 title: Primeiro Post
 date: 07th July 2023
 description: Primeiro post do blog.
+coverImage: https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80
+tags:
+    - ux
+    - nextjs
+headings:
+    - lorem-ipsum
+    - frases
+    - imagem
+    - video
 ---
 
+## Teste tabela de conteúdos
+
+- [Lorem Ipsum](#lorem-ipsum)
+- [Frases](#frases)
+- [Imagem](#imagem)
+- [Video](#video)
+
+
 Este é o **primeiro** post do blog usando *markdown*.
-Será mais para ``testar``as marcações e o estilo da pagina.
+Será mais para ``testar`` as marcações e o estilo da pagina.
 
 
-``teste``
 
-# Titulo 1
-## Titulo 2
-### Titulo 3
-#### Titulo 4
-##### Titulo 5
-###### Titulo 6
+## Lorem ipsum
 
-Lorem ipsum dolor sit amet, consectet ut lab et al, sed diam nonumy eirmod tempor invidunt ut
+Lorem ipsum sit amet Consequat culpa cillum sunt incididunt eiusmod esse ullamco sit Lorem ea aute incididunt. Dolore id duis magna incididunt. Occaecat non cillum nisi eiusmod cillum ad ad quis eiusmod nostrud irure aliquip fugiat commodo.
+Sunt culpa sit proident anim fugiat. Occaecat Lorem aliqua tempor adipisicing consequat Lorem enim dolore. Consequat mollit esse esse excepteur irure reprehenderit.
+Sint cupidatat labore nulla sit sunt aute in. Sunt pariatur ipsum nulla magna aute veniam anim enim laboris officia voluptate mollit. Quis ullamco labore exercitation ipsum fugiat. Elit laboris mollit nulla ad et. Dolor officia velit cupidatat excepteur officia. Cillum consequat Lorem anim anim esse do.
+Qui pariatur cillum sit sint ullamco ad aute anim do esse reprehenderit id sint. Exercitation in anim exercitation tempor. Mollit ex Lorem et ad voluptate dolor consectetur veniam anim laboris fugiat in anim. Aliqua in pariatur et aliqua proident dolor.
 
-__negrito__
 **negrito**
 
-_Italico_
 *Italico*
 
-> Uma frase
+## Frases
+
+> Lorem ipsum dolor sit amet, consectet ut lab et al.
+
+> Do not push the big red button.
+
+> Sunrises are beautiful.
+
+> Remember to appreciate the little things in life.
 
 
->> Aqui<br/>
-Tem Frases
-
+## Listas
 
 - lista
 - com
@@ -41,43 +59,53 @@ Tem Frases
 3. números
 
 
-Teste de imagem:
+## Imagem
 
-![Laptop on Desk](https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)
+<CustomImage 
+    src='https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'
+    alt='Laptop on Desk'
+/>
 
-Teste de código:
+## Código
 
-<CodeComponent 
-    title="teste.js"
-    language="js"
-    children={
-    `
-const a = 1;
-const b = 2;
-const c = a + b;
-console.log(c);
-`}
-></CodeComponent>
+```javascript
+// teste.js
+
+function $initHighlight(block, cls) {
+  try {
+    if (cls.search(/\bno\-highlight\b/) != -1)
+      return process(block, true, 0x0F) +
+             ` class="${cls}"`;
+  } catch (e) {
+    /* handle exception */
+  }
+  for (var i = 0 / 2; i < classes.length; i++) {
+    if (checkCondition(classes[i]) === undefined)
+      console.log('undefined');
+  }
+
+  return (
+    <div>
+      <web-component>{block}</web-component>
+    </div>
+  )
+}
+
+export  $initHighlight;
+```
 
 Lorem ipsum sit amet Consequat culpa cillum sunt incididunt eiusmod esse ullamco sit Lorem ea aute incididunt. Dolore id duis magna incididunt. Occaecat non cillum nisi eiusmod cillum ad ad quis eiusmod nostrud irure aliquip fugiat commodo.
 Sunt culpa sit proident anim fugiat. Occaecat Lorem aliqua tempor adipisicing consequat Lorem enim dolore. Consequat mollit esse esse excepteur irure reprehenderit.
 Sint cupidatat labore nulla sit sunt aute in. Sunt pariatur ipsum nulla magna aute veniam anim enim laboris officia voluptate mollit. Quis ullamco labore exercitation ipsum fugiat. Elit laboris mollit nulla ad et. Dolor officia velit cupidatat excepteur officia. Cillum consequat Lorem anim anim esse do.
 Qui pariatur cillum sit sint ullamco ad aute anim do esse reprehenderit id sint. Exercitation in anim exercitation tempor. Mollit ex Lorem et ad voluptate dolor consectetur veniam anim laboris fugiat in anim. Aliqua in pariatur et aliqua proident dolor.
 
-> Do not push the big red button.
-
-> Sunrises are beautiful.
-
-> Remember to appreciate the little things in life.
+## Video
 
 
-#### Teste tabela de conteúdos
+<Video id='uD4izuDMUQA' />
 
-- [Underline](#underline)
-- [Indent](#indent)
-- [Center](#center)
-- [Color](#color)
+Lorem ipsum sit amet Consequat culpa cillum sunt incididunt eiusmod esse ullamco sit Lorem ea aute incididunt. Dolore id duis magna incididunt. Occaecat non cillum nisi eiusmod cillum ad ad quis eiusmod nostrud irure aliquip fugiat commodo.
+Sunt culpa sit proident anim fugiat. Occaecat Lorem aliqua tempor adipisicing consequat Lorem enim dolore. Consequat mollit esse esse excepteur irure reprehenderit.
+Sint cupidatat labore nulla sit sunt aute in. Sunt pariatur ipsum nulla magna aute veniam anim enim laboris officia voluptate mollit. Quis ullamco labore exercitation ipsum fugiat. Elit laboris mollit nulla ad et. Dolor officia velit cupidatat excepteur officia. Cillum consequat Lorem anim anim esse do.
+Qui pariatur cillum sit sint ullamco ad aute anim do esse reprehenderit id sint. Exercitation in anim exercitation tempor. Mollit ex Lorem et ad voluptate dolor consectetur veniam anim laboris fugiat in anim. Aliqua in pariatur et aliqua proident dolor.
 
-#### Teste link video
-
-[![Video do youtube](https://img.youtube.com/vi/uD4izuDMUQA/0.jpg)](https://www.youtube.com/watch?v=uD4izuDMUQA)

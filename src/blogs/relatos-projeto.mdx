@@ -1,0 +1,162 @@
+---
+title: Relatos durante o desenvolvimento do projeto
+date: 10th July 2023
+description: Relatos do projeto.
+coverImage: https://images.unsplash.com/photo-1593062096033-9a26b09da705?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80
+tags:
+    - javascript
+headings:
+    - Jogo-da-Vida
+---
+
+
+## Jogo da Vida
+
+Eu não conhecia esse jogo e achei bem interessante e logo de cara tive ideias para sua implementação usando somente HTML, CSS e JavaScript.
+A primeira ideia foi usar como base um projeto de campo minado feito por mim também usando essas linguagens, inclusive está no meu github:
+
+[https://github.com/itspedro/minesweeper](https://github.com/itspedro/minesweeper)
+
+O que me deu ideia de descrever essa parte do processo é os resultados que estou tendo tentando implementar a lógica das gerações.
+
+![https://i.imgur.com/NWkLyr2.gif](https://i.imgur.com/NWkLyr2.gif)
+
+Eu sei que não está funcionando corretamente como o esperado mas oque eu achei mais interessante no resultado é a gerações de como se fossem labirintos…
+
+No gif acima são duas abas diferentes e em alguns momentos esses “labirintos” se conectam dando um resultado legal.
+
+```jsx
+
+class gameOfLife {
+  constructor() {
+    this.grid = []
+    this.gridX = 10;
+    this.gridY = 10;
+  };
+
+  makeGrid() {
+    let arr = new Array(this.gridX);
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = new Array(this.gridY);
+      for (let j = 0; j < arr.length; j++) {
+        arr[i][j] = new cell();
+      };
+    };
+    this.grid = arr;
+  };
+
+  checkNeighbors(x, y) {
+    let Neighbors = [];
+    for (let i = x - 1; i <= x + 1; i++) {
+      for (let j = y - 1; j <= y + 1; j++) {
+        if (i >= 0 && i < this.grid.length && j >= 0 && j < this.grid[i].length) {
+          Neighbors.push(this.grid[i][j])
+        }
+      }
+    }
+    return Neighbors;
+  };
+
+  newGeneration() {
+    let arr = this.grid;
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length; j++) {
+        let cell = arr[i][j];
+        let neighbors = this.checkNeighbors(i, j);
+        let aliveNeighbors = neighbors.filter(neighbor => neighbor.isAlive());
+        if (cell.isAlive()) {
+          if (aliveNeighbors.length < 2 || aliveNeighbors.length > 3) {
+            cell.makeDead();
+          }
+        }
+        else {
+          if (aliveNeighbors.length === 3) {
+            cell.makeAlive();
+          }
+        }
+      };
+    };
+  };
+
+  updateGrid() {
+    let arr = this.grid;
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length; j++) {
+        let cell = arr[i][j];
+        let cellElement = document.getElementById(`${i}-${j}`);
+        if (cell.isAlive()) {
+          cellElement.classList.remove('dead');
+          cellElement.classList.add('alive');
+        } else {
+          cellElement.classList.remove('alive');
+          cellElement.classList.add('dead');
+        }
+      };
+    };
+  };
+};
+
+```
+
+Essa é a classe que estou utilizando para geração do gif acima.
+
+**1 dia depois**
+
+Finalmente!! Consegui fazer o jogo da vida funcionar como o esperado, primeira coisa que percebi foi que precisava trocar a responsabilidade
+de saber as celulas vizinhas para a propria celula, já que no codigo acima não estava desse jeito.
+
+Após criar o método que me retornasse as celulas vizinhas começei a testar e ler sobre as regras do jogo, já que o meu não estava se comportando como o esperado, e após perguntar para uma inteligência artificial o porque de não estár se comportando exatamente como o esperado ela me deu a ideia de criar uma array clone e após fazer a implementação da lógica mesclar as duas arrays, e após isso, magicamente temos o jogo implementado.
+
+```jsx
+// A responsabilidade de retornar as celulas vizinhas foi para a celula
+checkNeighbors(cell) {
+    const neighborsCell = cell.getNeighbors(this.grid);
+    return neighborsCell;
+  };
+
+// Método para clonar o estado atual do jogo
+  cloneGrid() {
+    let arr = this.grid;
+    let newArr = new Array(arr.length);
+    for (let i = 0; i < arr.length; i++) {
+      newArr[i] = new Array(arr[i].length);
+      for (let j = 0; j < arr[i].length; j++) {
+        newArr[i][j] = new cell(arr[i][j].x, arr[i][j].y);
+        newArr[i][j].alive = arr[i][j].alive;
+      }
+    }
+    return newArr;
+  };
+
+// Gerar uma nova geração
+  newGeneration() {
+
+    let arr = this.grid;
+    let newArr = this.cloneGrid();
+
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length; j++) {
+        let cell = arr[i][j];
+        let neighbors = this.checkNeighbors(cell);
+        let aliveNeighbors = neighbors.filter(neighbor => neighbor.isAlive());
+        
+        if (cell.isAlive()) {
+          if (aliveNeighbors.length < 2 || aliveNeighbors.length > 3) {
+            newArr[i][j].makeDead();
+          };
+        }
+        else {
+          if (aliveNeighbors.length === 3) {
+            newArr[i][j].makeAlive();
+          };
+        }
+      };
+    };
+    this.grid = newArr;
+  };
+```
+
+![https://i.imgur.com/cainTeA.gif](https://i.imgur.com/cainTeA.gif)
+
+No gif acima apenas troquei o tamanho do grid para 50x50.
+
