@@ -3,7 +3,7 @@ import Header from '@/components/Header/header';
 import MDXstyle from '@/components/blog/MDXstyle';
 import { getPostMatter } from '@/lib/posts';
 import 'highlight.js/styles/base16/monokai.css';
-import MetaSection from '@/contents/blog/blog=meta';
+import MetaSection from '@/contents/blog/blog-meta';
 
 async function BlogPost({ params }: { params: { slug: string } }) {
 
