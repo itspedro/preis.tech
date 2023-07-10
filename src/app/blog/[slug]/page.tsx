@@ -2,35 +2,27 @@ import Footer from '@/components/Footer/footer';
 import Header from '@/components/Header/header';
 import MDXstyle from '@/components/blog/MDXstyle';
 import { getPostMatter } from '@/lib/posts';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import CodeComponent from '@/components/blog/CodeComponent';
+import 'highlight.js/styles/base16/monokai.css';
+import MetaSection from '@/contents/blog/blog=meta';
 
 async function BlogPost({ params }: { params: { slug: string } }) {
 
-  const props = getPostMatter(params.slug);
+  const props = await getPostMatter(params.slug);
 
   return (
     <>
-      <div>
-        <Header/>
-      </div>
+      <Header />
       <section>
+        <MetaSection 
+          title={props.title}
+          date={props.date}
+          tags={props.tags}
+        />
         <MDXstyle>
-          <h1>{props.title}</h1>
-          <MDXRemote
-            components={{
-              CodeComponent: ({ children, language, title }) => 
-              <CodeComponent title={title} language={language}>
-                {children}
-              </CodeComponent>
-            }}
-            source={props.content}
-            />
+          {props.content}
         </MDXstyle>
       </section>
-      <div>
-        <Footer/>
-      </div>
+      <Footer/>
     </>
   );
 };
