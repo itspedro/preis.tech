@@ -41,9 +41,9 @@ function HeaderItems() {
       <Link href="/blog">
         <NavItem>Blog</NavItem>
       </Link>
-      <a href="https:/github.com/itsPedro?tab=repositories">
+      <Link href="https:/github.com/itsPedro?tab=repositories" passHref={true}>
         <NavItem>Projetos</NavItem>
-      </a>
+      </Link>
     </NavList>
   );
 };
