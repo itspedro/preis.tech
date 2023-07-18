@@ -1,10 +1,11 @@
-import Header from '@/components/Header/header';
 import React from 'react';
 import renderer from 'react-test-renderer';
+import Main from '@/contents/index/Main/main';
 
-describe('Header', () => {
+describe('Main', () => {
   it('renders correctly', () => {
-    const tree = renderer.create(<Header />).toJSON();
+    const tree = renderer.create(<Main />).toJSON();
     expect(tree).toMatchSnapshot();
-  });
+  });  
 });
+
