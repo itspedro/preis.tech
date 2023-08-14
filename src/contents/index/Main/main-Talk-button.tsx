@@ -17,16 +17,11 @@ const Button = styled.button`
   width: 145px;
   height: 42px;
   border-radius: 8px;
-  background: var(--text-color);
+  background: ${props => props.theme.tertiary};
   cursor: pointer;
 
   &:hover {	
-    box-shadow: 5px 5px 10px rgba(85, 189, 179, 0.2);
-    scale: 1.05;
-  };
-  &:active {
-    scale: 0.96;
-    border: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   };
 `
 
