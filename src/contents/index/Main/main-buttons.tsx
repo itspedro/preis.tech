@@ -4,7 +4,6 @@ import TalkButton from './main-Talk-button';
 
 const Root = styled.div`
   display: flex;
-  gap: 13px;
 `
 
 function MainButtons() {

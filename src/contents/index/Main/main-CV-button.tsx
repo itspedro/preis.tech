@@ -14,18 +14,17 @@ const Button = styled.button`
   gap: 5px;
   border: none;
   padding: 12px 16px;
-  background: rgba(85, 189, 179, 0.1);
+  background: transparent;
   border-radius: 21px;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 14px;
   line-height: 18px;
-  color: var(--second-green);
+  color: ${props => props.theme.text};
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
-    box-shadow: 5px 5px 10px rgba(85, 189, 179, 0.2);
-    scale: 1.05;
+    color: ${props => props.theme.textBold};
   };
   &:active {
     scale: 0.96;
@@ -38,7 +37,7 @@ function CurriculoButton() {
   return (
     <ButtonContainer>
       <Link href="https://cutt.ly/HwukbJnT">
-          <Button>Currículo<ButtonIcon/></Button>
+          <Button><ButtonIcon/>Currículo</Button>
       </Link>
     </ButtonContainer>
   );
