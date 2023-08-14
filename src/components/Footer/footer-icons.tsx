@@ -15,7 +15,7 @@ const Icons = styled.div`
 function FooterIcons() {
   return(
     <Icons>
-        <GithubIcon />
+      <GithubIcon />
     </Icons>
   );
 };

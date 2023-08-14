@@ -73,6 +73,11 @@ const Label = styled.span`
   border: 1px solid ${props => props.theme.textLight};
   border-radius: 10px;
   padding: 2px 4px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 8px;
+  }
 `
 
 
@@ -93,7 +98,7 @@ function FooterCol(props: FooterColsProps) {
                 {link.name}
                 {link.$soon || link.$new ? (
                   <Label>
-                    {link.$soon ? 'Em Breve' : 'Novo!'}
+                    {link.$soon ? 'EM BREVE' : 'NOVO'}
                   </Label>
                 ): null}
               </FooterColItem>

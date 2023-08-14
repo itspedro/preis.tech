@@ -34,7 +34,7 @@ function FooterSobre() {
   return (
     <Container>
       <Title>Sobre Mim</Title>
-      <Text>Um desenvolvedor Font-End que adora novos desafios e pensar fora da caixa.</Text>
+      <Text>Um <strong>desenvolvedor</strong> que adora novos desafios e pensar fora da caixa.</Text>
       <Link href="https://github.com/itsPedro">
         <FooterIcons/>
       </Link>
