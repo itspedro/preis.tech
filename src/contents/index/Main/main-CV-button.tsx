@@ -36,7 +36,7 @@ function CurriculoButton() {
 
   return (
     <ButtonContainer>
-      <Link href="https://cutt.ly/HwukbJnT">
+      <Link href="https://to.preis.tech/cv">
           <Button><ButtonIcon/>Currículo</Button>
       </Link>
     </ButtonContainer>
