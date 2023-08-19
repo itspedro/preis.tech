@@ -5,12 +5,16 @@ import { styled } from 'styled-components';
 const ContentSection = styled.section`
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
   font-family: inherit;
   margin-bottom: 20px;
   font-weight: 400;
   padding-top: 10%;
+
+  @media (min-width: 1400px) {
+    width: 40%;
+  };
 
   @media (max-width: 768px) {
     width: 90%;
