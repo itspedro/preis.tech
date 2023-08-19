@@ -1,16 +1,28 @@
-'use client'
+'use client';
 
 import styled from 'styled-components';
+import { MDXProvider } from '@mdx-js/react';
+import { useMDXComponents } from '../../../mdx-components';
 
 const Container = styled.article`
   display: flex;
+  text-align: justify;
   flex-direction: column;
   width: 50%;
   margin: 0 auto;
   font-family: inherit;
   font-weight: 400;
   line-height: 1.8;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+
+  @media (min-width: 768px) {
+    border-left: 1px solid ${props => props.theme.text20};
+    padding-left: 20px;
+  };
+
+  @media (min-width: 1400px) {
+    width: 40%
+  };
 
   @media (max-width: 768px) {
     width: 90%;
@@ -27,7 +39,7 @@ const Container = styled.article`
     color: ${props => props.theme.text};
     text-decoration: none;
     display: inline-block;
-    
+    margin-left: 5px;
 
     &:hover {
       color: ${props => props.theme.primary};
@@ -89,7 +101,6 @@ const Container = styled.article`
   };
 
   img {
-    max-width: 500px;
     margin: 16px auto;
     border-radius: 4px;
   };
@@ -104,13 +115,20 @@ const Container = styled.article`
 `
 
 interface MDXstyleProps {
-  children: React.ReactNode;
+  slug: string
 };
 
-function MDXstyle({ children }: MDXstyleProps) {
+const components = useMDXComponents;
+
+async function MDXstyle({ slug }: MDXstyleProps) {
+
+  const MDXComponent = await import(`@/blogs/${slug}.mdx`);
+
   return (
     <Container>
-      {children}
+      <MDXProvider components={components}>
+        <MDXComponent.default />
+      </MDXProvider>
     </Container>
   );
 };

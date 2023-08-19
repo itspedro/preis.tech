@@ -1,4 +1,4 @@
-import IndexContents from "@/contents/index";
+import IndexContents from '@/contents/index';
 
 export default function Home() {
   return (
