@@ -5,13 +5,12 @@ import { styled } from 'styled-components';
 const ContentSection = styled.section`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
   font-family: inherit;
   margin-bottom: 20px;
   font-weight: 400;
   padding-top: 10%;
-  border-bottom: 1px solid ${props => props.theme.text20};
 
   @media (max-width: 768px) {
     width: 90%;
@@ -21,9 +20,14 @@ const ContentSection = styled.section`
 
 const Title = styled.h1`
   font-family: inherit;
-  font-size: 32px;
+  font-size: 60px;
   font-weight: 600;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  };
+
 `
 
 const TagsSection = styled.div`
@@ -36,20 +40,20 @@ const TagsSection = styled.div`
 `
 
 const Tag = styled.span`
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 800;
   color: ${props => props.theme.primary};
   border: 1px solid ${props => props.theme.primary};
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
+  border-radius: 20px;
+  padding: 5px;
   transition: all 0.2s ease-in-out;
 `
 
 const DateSpan = styled.span`
   font-size: 14px;
   font-weight: 600;
-  color: ${props => props.theme.text20};
+  margin-top: 20px;
+  color: ${props => props.theme.text70};
 `
 
 interface MetaProps {
