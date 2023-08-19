@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import MainContent from './main-content';
 import { addOpacity } from '@/utils/misc';
 
-const MainRoot = styled.div`
+const MainRoot = styled.div.attrs({ className: 'bg-image' })`
   width: 100%;
   height: 800px;
   background: linear-gradient(360deg, transparent, ${props => addOpacity(props.theme.primary, 0.2)});
