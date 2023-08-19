@@ -1,14 +1,14 @@
-export interface PostData {
+
+
+export type TBaseFrontMatter = {
   title: string;
   description: string;
-  date: string;
-  coverImage: string;
-  tags: string[];
-  headings: string[];
-  content: React.ReactNode;
+  caption?: string;
 };
 
-export interface Post {
-  slug: string;
-  data: PostData;
+export type TPostFrontMatter = TBaseFrontMatter & {
+  date: string;
+  lang: 'pt' | 'en';
+  tags: Array<string>;
+  category: string;
 };
