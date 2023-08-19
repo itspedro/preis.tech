@@ -1,17 +1,16 @@
 'use client';
 
-import CardComponent from '@/components/Card';
 import React from 'react';
 import styled from 'styled-components';
 import PreviewTitle from './preview-title';
-import { Post } from '@/types/blog';
-import Link from 'next/link';
+import { TPostFrontMatter } from '@/types/blog';
+import PostPreview from '@/components/blog/PostPreview';
 
 
-const Root = styled.div`
+const Root = styled.div.attrs({ className: 'bg-image' })`
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
   gap: 50px;
   height: 800px;
@@ -27,27 +26,25 @@ const CardContainer = styled.div`
   gap: 10px;
 `
 
+type SinglePost = {
+  slug: string,
+  frontMatter: TPostFrontMatter
+}
 interface PreviewProps {
-  posts: Post[];
+  posts: SinglePost[]
 };
-
 
 function PreviewSection({ posts }: PreviewProps) {
   return (
     <Root>
-
       <PreviewTitle />
-
       <CardContainer>
-        {posts.map((post, index) => (
-          <Link href={`/blog/${post.slug}`} key={post.slug}>
-            <CardComponent
-              number={index + 1}
-              title={post.data.title}
-              description={post.data.description}
-              date={post.data.date}
-            />
-          </Link>
+        {posts.map((post) => (
+          <PostPreview
+            frontMatter={post.frontMatter}
+            slug={post.slug}
+            key={post.slug}
+          />
         ))}
       </CardContainer>
     </Root>
