@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import { ExternalLinkIcon } from '../icons/external-link-icon';
 
 interface LinksProps {
   id: number;
@@ -80,6 +81,24 @@ const Label = styled.span`
   }
 `
 
+const ExternalLink = styled(Link)`
+  color: ${props => props.theme.textLight};
+  text-decoration: underline;
+  transition: 0.3s;
+
+  &:hover {
+    color: ${props => props.theme.textBold};
+  };
+
+  svg {
+    width: 12px;
+  }
+
+`
+
+const isExternalLink = (link: string): boolean => {
+  return link.includes('http');
+};
 
 function FooterCol(props: FooterColsProps) {
   return (
@@ -89,7 +108,22 @@ function FooterCol(props: FooterColsProps) {
         {props.links.map((link) => {
           link.$soon = link.$soon ?? false;
           link.$new = link.$new ?? false;
-          return (
+          return isExternalLink(link.url) ? (
+              <ExternalLink key={link.id} href={link.url} passHref>
+                <FooterColItem 
+                  $soon={link.$soon}
+                  $new={link.$new}
+                  >
+                  {link.name}
+                  <ExternalLinkIcon />
+                  {link.$soon || link.$new ? (
+                    <Label>
+                      {link.$soon ? 'EM BREVE' : 'NOVO'}
+                    </Label>
+                  ): null}
+                </FooterColItem>
+              </ExternalLink>
+            ) : (  
             <Link key={link.id} href={!link.$soon ? link.url : ''} passHref>
               <FooterColItem 
                 $soon={link.$soon}
