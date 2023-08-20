@@ -3,8 +3,13 @@
 import styled from 'styled-components';
 import { MDXProvider } from '@mdx-js/react';
 import { useMDXComponents } from '../../../mdx-components';
+import { addOpacity } from '@/utils/misc';
+import useOnScroll from '@/hooks/useOnScroll';
 
-const Container = styled.article`
+
+const Container = styled.article<{ 
+  $isScrolling: boolean,
+}>`
   display: flex;
   text-align: justify;
   flex-direction: column;
@@ -13,11 +18,10 @@ const Container = styled.article`
   font-family: inherit;
   font-weight: 400;
   line-height: 1.8;
-  margin-bottom: 50px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1400px) {
     border-left: 1px solid ${props => props.theme.text20};
-    padding-left: 20px;
+    padding-left: 50px;
   };
 
   @media (min-width: 1400px) {
@@ -26,6 +30,22 @@ const Container = styled.article`
 
   @media (max-width: 768px) {
     width: 90%;
+  };
+
+  h1,h2,h3,h4,h5,h6 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 20px 0;
+
+    &:hover {
+      .autolink-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+      };
+    };
   };
 
   h1 {
@@ -38,13 +58,19 @@ const Container = styled.article`
   .autolink-header {
     color: ${props => props.theme.text};
     text-decoration: none;
-    display: inline-block;
-    margin-left: 5px;
+    display: none;
+    position: absolute;
+    left: -32px;
+
+    background-color: ${props => addOpacity(props.theme.secondary, 0.7)};
+    backdrop-filter: blur(30px);
+    border: 1px solid ${props => props.theme.secondary};
+    border-radius: 5px;
 
     &:hover {
       color: ${props => props.theme.primary};
     };
-  }
+  };
 
   .visually-hidden {
     border: 0;
@@ -112,6 +138,54 @@ const Container = styled.article`
     border-radius: 4px;
   };
 
+  .toc-title {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid ${props => props.theme.text20};
+    color: #fff;
+
+    a {
+      display: none;
+      ${(props) => props.$isScrolling && `
+        display: inline-block;
+      `};
+    };
+  };
+
+  .toc {
+    position: absolute;
+    font-size: 14px;
+    background-color: ${props => addOpacity(props.theme.tertiary, 0.7)};
+    backdrop-filter: blur(30px);
+    border-radius: 8px;
+    border: 1px solid ${props => props.theme.text20};
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 75%;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+
+    ${(props) =>
+    props.$isScrolling && `
+      position: fixed;
+    `};
+
+    @media (min-width: 1400px) {
+      ${(props) =>
+        props.$isScrolling && `
+          transform: translateX(-10%);
+      `};
+    };
+
+    @media (max-width: 1200px) {
+      display: none;
+    };
+  };
+
 `
 
 interface MDXstyleProps {
@@ -120,12 +194,15 @@ interface MDXstyleProps {
 
 const components = useMDXComponents;
 
-async function MDXstyle({ slug }: MDXstyleProps) {
+function MDXstyle({ slug }: MDXstyleProps): JSX.Element {
 
-  const MDXComponent = await import(`@/blogs/${slug}.mdx`);
+  const isScrolling = useOnScroll();
+  const MDXComponent = require(`@/blogs/${slug}.mdx`);
 
   return (
-    <Container>
+    <Container 
+      $isScrolling={isScrolling}
+    >
       <MDXProvider components={components}>
         <MDXComponent.default />
       </MDXProvider>
