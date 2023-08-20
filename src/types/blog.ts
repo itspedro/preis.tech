@@ -8,7 +8,7 @@ export type TBaseFrontMatter = {
 
 export type TPostFrontMatter = TBaseFrontMatter & {
   date: string;
-  lang: 'pt' | 'en';
+  lang: 'pt-br' | 'en';
   tags: Array<string>;
   category: string;
 };
