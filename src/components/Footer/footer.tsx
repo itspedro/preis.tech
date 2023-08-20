@@ -80,13 +80,13 @@ function Footer() {
               { 
                 id: 2,
                 name: "Projetos",
-                url: "",
+                url: "#",
                 $soon: true
               },
               { 
                 id: 3,
                 name: "Currículo",
-                url: "https://cutt.ly/HwukbJnT"
+                url: "https://to.preis.tech/cv"
               }
             ]}
           />
