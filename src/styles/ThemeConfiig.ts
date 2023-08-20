@@ -2,6 +2,27 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
 
+    ::-webkit-scrollbar {
+        width: 10px;
+    };
+
+    ::-webkit-scrollbar-track {
+        background: ${props => props.theme.text20}; 
+    };
+    
+    ::-webkit-scrollbar-thumb {
+        background: ${props => props.theme.text};
+    };
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: ${props => props.theme.text80}; 
+    };
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 110px;
+    };
+
     * {
         box-sizing: border-box;
         padding: 0;
@@ -35,7 +56,6 @@ export const GlobalStyles = createGlobalStyle`
         background-color: ${props => props.theme.background};
         color: ${props => props.theme.textBold};
         background-size: 40px 40px;
-        /* background-image: radial-gradient(circle, ${props => props.theme.text20} 1px, rgba(0, 0, 0, 0) 1px); */
     };
 
 `
