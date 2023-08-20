@@ -3,17 +3,25 @@ import { Outfit } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProviderWrapper } from '@/contexts/themes-context';
 import StyledComponentsRegistry from '@/lib/registry'
+import type { Metadata } from 'next';
+ 
+export const metadata: Metadata = {
+
+  title: {
+    default: 'preis.tech',
+    template: '%s — Pedro · preis.tech'
+  },
+  description: 'Site pessoal de Pedro Reis.',
+  icons: {
+    icon: './icon.png',
+  }
+
+};
 
 const outfit = Outfit({
   weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin']
 });
-
-export const metadata = {
-  title: 'preis.tech',
-  description: 'A personal developer website',
-  icon: '/icon.png'
-};
 
 interface RootLayoutProps {
   children: React.ReactNode;
