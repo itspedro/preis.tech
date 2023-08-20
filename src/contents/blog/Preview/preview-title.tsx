@@ -7,7 +7,7 @@ const Title = styled.h2`
   font-weight: 800;
 
   @media (max-width: 768px) {
-    font-size: 32px;
+    font-size: 40px;
   };
 `
 
@@ -17,6 +17,10 @@ const Container = styled.div`
   position: relative;
   width: 50%;
   gap: 16px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  };
 `
 
 const Desc = styled.p`
@@ -27,6 +31,10 @@ const Desc = styled.p`
   line-height: 24px;
   margin: 0;
   color: ${props => props.theme.text70};
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  };
 `
 
 function PreviewTitle() {
