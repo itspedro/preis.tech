@@ -109,6 +109,41 @@ const Container = styled.article<{
     margin: 20px 0;
   };
 
+  ul,
+  ol {
+    margin: 20px 0;
+
+    li {
+      position: relative;
+      margin: 10px 0;
+      padding-left: 20px;
+
+      & + li {
+        margin-top: 0;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        border-radius: 4px;
+        background: ${props => props.theme.text80};
+
+
+        @media (max-width: 768px) {
+          width: 8px;
+          height: 8px;
+          left: 10px;
+          border-radius: 3px;
+        }
+      };
+    }
+  }
+
   li {
     margin: 10px 0;
   };
@@ -162,12 +197,24 @@ const Container = styled.article<{
     border: 1px solid ${props => props.theme.text20};
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    top: 30%;
     left: 75%;
     margin: 0 auto;
     width: 100%;
     max-width: 300px;
     padding: 10px;
     transition: all 0.3s ease-in-out;
+
+    li {
+      margin: 10px 0;
+      padding-left: 10px;
+      list-style: none;
+
+      &::before {
+        content: '';
+        background: transparent;
+      };
+    };
 
     ${(props) =>
     props.$isScrolling && `
