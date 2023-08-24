@@ -1,7 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import { TPostFrontMatter } from '@/types/blog';
 import { CSSProperties } from 'react';
 
-import Image from 'next/image';
 
 const styles: Record<string, CSSProperties> = {
   container: {
@@ -124,7 +124,7 @@ export function PostOgImage({
       )}
 
       <div style={styles.author}>
-        <Image
+        <img
           alt="Pedro Reis"
           width="48"
           height="48"
@@ -164,7 +164,7 @@ export function PageOgImage({
         </>
       )}
       <div style={styles.author}>
-        <Image
+        <img
           alt="Pedro Reis"
           width="48"
           height="48"
