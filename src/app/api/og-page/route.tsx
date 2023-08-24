@@ -11,7 +11,12 @@ export async function GET(request: Request) {
     const description = get('description');
 
     return new ImageResponse(
-      <PageOgImage title={title} description={description} />,
+      (
+        <PageOgImage
+          title={title}
+          description={description} 
+        />
+      ),
       {
         width: 1200,
         height: 630,
