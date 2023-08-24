@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   description: 'Site pessoal de Pedro Reis.',
   icons: {
     icon: './icon.png',
+  },
+  twitter: {
+    card: 'summary_large_image',
   }
 
 };

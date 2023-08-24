@@ -1,6 +1,6 @@
 import { getPostFrontMatter } from '@/lib/posts'
 
-export const alt = 'Pedro Reis';
+export const alt = 'Pedro Reis - Post';
 
 export const size = {
   width: 1200,

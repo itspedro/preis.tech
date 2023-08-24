@@ -7,6 +7,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: `Blog Pessoal`,
   description: `Desenvolvimento web e aprendizados.`,
+  twitter: {
+    card: 'summary_large_image',
+  }
 };
 
 export default async function Blog() {

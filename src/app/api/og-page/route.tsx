@@ -2,10 +2,7 @@ import { ImageResponse } from '@vercel/og';
 
 import { PageOgImage } from '@/components/meta/og-images';
 
-import type { NextRequest } from 'next/server';
-
-
-export async function GET(request: NextRequest) {
+export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const get = (param: string): string => searchParams.get(param) || '';
 
