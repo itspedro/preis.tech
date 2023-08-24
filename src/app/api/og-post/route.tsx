@@ -5,8 +5,6 @@ import { PostOgImage } from '@/components/meta/og-images';
 import { formatTime } from '@/utils/misc';
 
 
-export const runtime = 'edge'
-
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const get = (param: string): string => searchParams.get(param) || '';
