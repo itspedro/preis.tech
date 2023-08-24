@@ -26,6 +26,8 @@ export function generateMetadata(
     title: post.title,
     twitter: {
       card: 'summary_large_image',
+      title: `${post.title}`,
+      description: 'Site pessoal de Pedro Reis.',
     }
   };
 };

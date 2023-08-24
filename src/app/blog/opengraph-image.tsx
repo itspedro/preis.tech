@@ -1,4 +1,7 @@
 export const alt = 'Pedro Reis - Blog';
+export const title = 'Pedro Reis - Posts';
+export const description = 'Blog Pessoal e portfólio.';
+export const url = `${process.env.URL}`;
 
 export const size = {
   width: 1200,

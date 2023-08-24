@@ -1,6 +1,9 @@
 import { getPostFrontMatter } from '@/lib/posts'
 
 export const alt = 'Pedro Reis - Post';
+export const title = 'Pedro Reis - Post';
+export const description = 'Portfólio e site pessoal.';
+export const url = `${process.env.URL}`;
 
 export const size = {
   width: 1200,
