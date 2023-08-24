@@ -1,10 +1,8 @@
 import { getPostFrontMatter } from '@/lib/posts'
 import { ImageResponse } from 'next/server'
  
-// Route segment config
 export const runtime = 'edge'
  
-// Image metadata
 export const alt = 'About Acme'
 export const size = {
   width: 1200,
@@ -18,7 +16,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
   const post = getPostFrontMatter(params.slug);
 
 
-  return encodeURI(`${getBaseUrl()}/api/og-post?title=${post.title}&tags=${post.tags}&date=${post.date}&aspectRatio=16/9`);
+  return encodeURI(`preis-tech-git-dev-itspedro.vercel.app/api/og-post?title=${post.title}&tags=${post.tags}&date=${post.date}&aspectRatio=16/9`);
 
 }
 const getBaseUrl = () => {
