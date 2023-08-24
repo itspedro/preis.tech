@@ -5,9 +5,7 @@ import { PostOgImage } from '@/components/meta/og-images';
 import { formatTime } from '@/utils/misc';
 
 
-export const config = {
-  runtime: 'experimental-edge',
-};
+export const runtime = 'edge'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
