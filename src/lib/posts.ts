@@ -23,12 +23,6 @@ export function getPostFrontMatter(slug: string): TPostFrontMatter {
   return attributes;
 };
 
-// export function getPostBySlug(slug: string) {
-//   const PostComponent = import(`@/blogs/${slug}.mdx`);
-  
-//   return PostComponent;
-// };
-
 export function getSortedPosts() {
 
   const slugs = getPostSlugs();
