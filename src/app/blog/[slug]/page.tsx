@@ -24,6 +24,9 @@ export function generateMetadata(
 
   return {
     title: post.title,
+    twitter: {
+      card: 'summary_large_image',
+    }
   };
 };
 
@@ -32,10 +35,6 @@ function BlogPost({ params }: BlogPostProps) {
 
 
   const post = getPostFrontMatter(params.slug);
-
-  const metadata: Metadata = {
-    title: post.title,
-  };
 
   return (
     <>

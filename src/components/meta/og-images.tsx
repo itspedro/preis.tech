@@ -1,5 +1,6 @@
 import { TPostFrontMatter } from '@/types/blog';
 import { CSSProperties } from 'react';
+import Image from 'next/image';
 
 const styles: Record<string, CSSProperties> = {
   container: {
@@ -120,7 +121,8 @@ export function PostOgImage({
       )}
 
       <div style={styles.author}>
-        <img
+        <Image
+          alt="Pedro Reis"
           width="48"
           height="48"
           src="https://github.com/itspedro.png?size=48"
@@ -162,7 +164,8 @@ export function PageOgImage({
         </>
       )}
       <div style={styles.author}>
-        <img
+        <Image
+          alt="Pedro Reis"
           width="48"
           height="48"
           src="https://github.com/itspedro.png?size=48"
