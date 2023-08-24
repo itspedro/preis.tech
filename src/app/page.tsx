@@ -1,9 +1,11 @@
 import IndexContents from '@/contents/index';
 
-export default function Home() {
+function Home() {
   return (
    <main>
       <IndexContents />
    </main>
-  )
-}
+  );
+};
+
+export default Home;

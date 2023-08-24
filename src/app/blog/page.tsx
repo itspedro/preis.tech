@@ -5,7 +5,8 @@ import { getSortedPosts } from '@/lib/posts';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: `Blog`,
+  title: `Blog Pessoal`,
+  description: `Desenvolvimento web e aprendizados.`,
 };
 
 export default async function Blog() {
