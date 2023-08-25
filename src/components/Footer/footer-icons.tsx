@@ -13,21 +13,25 @@ const Icons = styled.div`
 `
 
 const Icon = styled.span`
-  color: ${props => props.theme.icons};
+  color: ${props => props.theme.text80};
   font-size: 12px;
+
+  &:hover {
+    color: ${props => props.theme.icons};
+  };
 `
 
 function FooterIcons() {
   return(
     <Icons>
       
-      <Link href="https://github.com/itsPedro">
+      <Link aria-label="GitHub"  href="https://github.com/itsPedro">
         <Icon>
           <GithubIcon />
         </Icon>
       </Link>
       
-      <Link href="https://www.linkedin.com/in/itspedro">
+      <Link aria-label="Linkedin" href="https://www.linkedin.com/in/itspedro">
         <Icon>
           <LinkedinIcon/>
         </Icon>

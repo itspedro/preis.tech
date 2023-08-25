@@ -36,13 +36,17 @@ const FooterCols = styled.div`
   display: flex;
   align-items: start;
   gap: 50px;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+  };
 `
 
 const FooterCopy = styled.div`
   width: 50%;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #C9C9C9;
+  border-top: 1px solid #C9C9C933;
   height: 40px;
   align-items: center;
 
@@ -75,18 +79,20 @@ function Footer() {
               { 
                 id: 1,
                 name: "Contato",
-                url: "mailto:contato@preis.tech"
+                url: "/contato",
+                $new: true
               },
               { 
                 id: 2,
-                name: "Projetos",
-                url: "#",
-                $soon: true
+                name: "Ferramentas",
+                url: "/tools",
+                $new: true
               },
               { 
                 id: 3,
-                name: "Currículo",
-                url: "https://to.preis.tech/cv"
+                name: "Projetos",
+                url: "/",
+                $soon: true
               }
             ]}
           />
@@ -97,10 +103,25 @@ function Footer() {
                 id: 4,
                 name: "Blog",
                 url: "/blog",
-                $new: true
               },
               {
                 id: 5,
+                name: "Sobre",
+                url: "/sobre",
+                $soon: true
+              }
+            ]}
+            />
+            <FooterCol 
+            title="Links úteis"
+            links={[
+              { 
+                id: 6,
+                name: "Currículo",
+                url: "https://to.preis.tech/cv"
+              },
+              {
+                id: 7,
                 name: "Código Fonte",
                 url: "https://github.com/itsPedro/preis.tech",
               }

@@ -51,13 +51,13 @@ function HeaderControl() {
 
   return(
     <ControlContainer>
-      <Link href="https://github.com/itsPedro">
+      <Link aria-label="GitHub" href="https://github.com/itsPedro">
         <Icons>
           <GithubIcon />
         </Icons>
       </Link>
       <LineIcon />
-      <ToggleThemeButton onClick={toggleTheme}>
+      <ToggleThemeButton aria-label="Tema" onClick={toggleTheme}>
         {themeTitle === 'light' ? <DarkThemeIcon /> : <LightThemeIcon />}
       </ToggleThemeButton>
     </ControlContainer>
