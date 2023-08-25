@@ -1,7 +1,4 @@
 export const alt = 'Pedro Reis - Blog';
-export const title = 'Pedro Reis - Posts';
-export const description = 'Blog Pessoal e portfólio.';
-export const url = `${process.env.URL}`;
 
 export const size = {
   width: 1200,
@@ -14,5 +11,4 @@ export default async function Image() {
   return await fetch(`${process.env.URL}/api/og-page?title=Blog Pessoal&description=Aqui estão todos os artigos relacionados à projetos pessoais.`, {
     method: 'GET'
   });
-
-}
+};
