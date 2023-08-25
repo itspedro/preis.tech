@@ -13,7 +13,7 @@ const Container = styled.article<{
   display: flex;
   text-align: justify;
   flex-direction: column;
-  width: 50%;
+  width: 45%;
   margin: 0 auto;
   font-family: inherit;
   font-weight: 400;
@@ -203,7 +203,6 @@ const Container = styled.article<{
     width: 100%;
     max-width: 300px;
     padding: 10px;
-    transition: all 0.3s ease-in-out;
 
     li {
       margin: 10px 0;
@@ -219,12 +218,15 @@ const Container = styled.article<{
     ${(props) =>
     props.$isScrolling && `
       position: fixed;
+      top: 110px;
+      width:100%;
+      z-index:100;
     `};
 
     @media (min-width: 1400px) {
       ${(props) =>
         props.$isScrolling && `
-          transform: translateX(-10%);
+       
       `};
     };
 
@@ -243,7 +245,7 @@ const components = useMDXComponents;
 
 function MDXstyle({ slug }: MDXstyleProps): JSX.Element {
 
-  const isScrolling = useOnScroll();
+  const isScrolling = useOnScroll(170);
   const MDXComponent = require(`@/blogs/${slug}.mdx`);
 
   return (

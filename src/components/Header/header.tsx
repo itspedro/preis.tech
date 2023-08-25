@@ -18,10 +18,10 @@ const TagHeader = styled.div<{ $isScrolling: boolean }>`
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
   background-color: ${props => props.theme.secondary};
-  ${props => props.$isScrolling && `
+  ${props => props.$isScrolling ? `
     background-color: ${addOpacity(props.theme.secondary, 0.8)};
     backdrop-filter: blur(10px);
-  `};
+  ` : ''};
 
   @media (max-width: 768px) {
     margin: 2% 2%;
@@ -67,7 +67,7 @@ const LogoDetail = styled.span`
 
 function Header(){
 
-  const isScrolling = useOnScroll();
+  const isScrolling = useOnScroll(150);
 
   return (
     <HeaderContainer>

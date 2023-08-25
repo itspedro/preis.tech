@@ -1,7 +1,5 @@
 import { styled } from 'styled-components';
 import FooterIcons from './footer-icons';
-import Link from 'next/link';
-
 
 const Container = styled.div`
   display: flex;
@@ -35,9 +33,7 @@ function FooterSobre() {
     <Container>
       <Title>Sobre Mim</Title>
       <Text>Um <strong>desenvolvedor</strong> que adora novos desafios e pensar fora da caixa.</Text>
-      <Link href="https://github.com/itsPedro">
-        <FooterIcons/>
-      </Link>
+      <FooterIcons/>
     </Container>
   );
 };
