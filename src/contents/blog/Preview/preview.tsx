@@ -1,13 +1,12 @@
-'use client';
+"use client";
 
-import React from 'react';
-import styled from 'styled-components';
-import PreviewTitle from './preview-title';
-import { TPostFrontMatter } from '@/types/blog';
-import PostPreview from '@/components/blog/PostPreview';
+import React from "react";
+import styled from "styled-components";
+import PageTitle from "../../../components/page-title";
+import { TPostFrontMatter } from "@/types/blog";
+import PostPreview from "@/components/blog/PostPreview";
 
-
-const Root = styled.div.attrs({ className: 'bg-image' })`
+const Root = styled.div.attrs({ className: "bg-image" })`
   display: flex;
   flex-direction: column;
   width: 60%;
@@ -15,29 +14,31 @@ const Root = styled.div.attrs({ className: 'bg-image' })`
   gap: 50px;
   height: 800px;
 
-
   @media (max-width: 768px) {
     width: 100%;
-  };
-`
+  }
+`;
 const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-`
+`;
 
 type SinglePost = {
-  slug: string,
-  frontMatter: TPostFrontMatter
-}
-interface PreviewProps {
-  posts: SinglePost[]
+  slug: string;
+  frontMatter: TPostFrontMatter;
 };
+interface PreviewProps {
+  posts: SinglePost[];
+}
 
 function PreviewSection({ posts }: PreviewProps) {
   return (
     <Root>
-      <PreviewTitle />
+      <PageTitle
+        title="Blog Pessoal"
+        description="Aqui estão todos os artigos relacionados à projetos pessoais."
+      />
       <CardContainer>
         {posts.map((post) => (
           <PostPreview
@@ -49,6 +50,6 @@ function PreviewSection({ posts }: PreviewProps) {
       </CardContainer>
     </Root>
   );
-};
+}
 
 export default PreviewSection;

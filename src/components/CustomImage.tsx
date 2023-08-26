@@ -22,10 +22,4 @@ function CustomImage(props: CustomImageProps) {
   );
 };
 
-CustomImage.defaultProps = {
-  src: "",
-  alt: "",
-};
-
-
 export default CustomImage;

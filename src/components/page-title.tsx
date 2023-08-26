@@ -37,17 +37,22 @@ const Desc = styled.p`
   };
 `
 
-function PreviewTitle() {
+interface PageTitleProps {
+  title: string;
+  description: string;
+};
+
+function PageTitle({title, description}: PageTitleProps) {
   return (
     <Container>
       <Title>
-        Blog Pessoal
+        {title}
       </Title>
       <Desc>
-        Aqui estão todos os artigos relacionados à projetos pessoais.
+        {description}
       </Desc>
     </Container>
   )
 }
 
-export default PreviewTitle;
+export default PageTitle;
