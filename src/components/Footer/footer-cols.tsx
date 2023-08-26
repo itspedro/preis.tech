@@ -42,13 +42,15 @@ const FooterColItem = styled.div<{
   letter-spacing: 0.8px;
   text-decoration: none;
   transition: 0.3s;
+  cursor: pointer;
   ${props => !props.$soon && `
     &:hover {
       color: ${props.theme.textBold};
     };
   `};
-  cursor: ${props => props.$soon ? "default" : "pointer"};
-
+  ${props => props.$soon && `
+    pointer-events: none;
+  `};
 `
 
 const FooterColTitle = styled.h3`

@@ -85,13 +85,13 @@ function Footer() {
               { 
                 id: 2,
                 name: "Ferramentas",
-                url: "/tools",
+                url: "/ferramentas",
                 $new: true
               },
               { 
                 id: 3,
                 name: "Projetos",
-                url: "/",
+                url: "/projetos",
                 $soon: true
               }
             ]}
