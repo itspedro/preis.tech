@@ -6,9 +6,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
   return {
     hr: CustomHr,
-    img: ({ src, ...rest }) => (
+    img: ({ src, alt, ...rest }) => (
       <CustomImage
-        src={src}
+        src={src || ''}
+        alt={alt || ''}
         {...rest}
       />
     ),
