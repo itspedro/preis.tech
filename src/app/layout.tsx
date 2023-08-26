@@ -6,7 +6,7 @@ import StyledComponentsRegistry from '@/lib/registry'
 import type { Metadata } from 'next';
  
 export const metadata: Metadata = {
-
+  metadataBase: new URL(process.env.URL || 'https://preis.tech'),
   title: {
     default: 'Pedro Reis · Portfólio',
     template: '%s — Pedro · Portfólio'

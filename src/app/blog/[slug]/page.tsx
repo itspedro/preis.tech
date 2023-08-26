@@ -1,19 +1,13 @@
-import Footer from '@/components/Footer/footer';
-import Header from '@/components/Header/header';
-import MDXstyle from '@/components/blog/MDXstyle';
 import { getPostFrontMatter } from '@/lib/posts';
 import 'highlight.js/styles/base16/monokai.css';
-import PostHeader from '@/components/blog/post-header';
-import PostFooter from '@/components/blog/post-footer';
 import type { Metadata } from 'next';
-
+import PostContent from '@/contents/blog/post/post';
 
 interface BlogPostProps {
   params: {
     slug: string;
   };
 };
-
 
 export function generateMetadata(
   { params }: BlogPostProps,
@@ -35,26 +29,14 @@ export function generateMetadata(
 
 function BlogPost({ params }: BlogPostProps) {
 
-
-  const post = getPostFrontMatter(params.slug);
+  const slug = params.slug;
+  const post = getPostFrontMatter(slug);
 
   return (
-    <>
-      <Header />
-      <section>
-        <PostHeader 
-          title={post.title}
-          description={post.description}
-          date={post.date}
-          lang={post.lang}
-        />   
-        <MDXstyle slug={params.slug} />
-        <PostFooter 
-          tags={post.tags}
-        />
-      </section>
-      <Footer/>
-    </>
+    <PostContent 
+      post={post}
+      slug={slug}
+    />
   );
 };
 

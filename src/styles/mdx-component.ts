@@ -49,6 +49,20 @@ export const MDXContainer = styled.article<{
     margin-bottom: 20px;
   };
 
+  h2 {
+    font-family: inherit;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  };
+
+  h3 {
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  };
+
   .autolink-header {
     color: ${props => props.theme.text};
     text-decoration: none;
@@ -126,14 +140,6 @@ export const MDXContainer = styled.article<{
         height: 12px;
         border-radius: 4px;
         background: ${props => props.theme.text80};
-
-
-        @media (max-width: 768px) {
-          width: 8px;
-          height: 8px;
-          left: 10px;
-          border-radius: 3px;
-        }
       };
     }
   }
@@ -144,7 +150,6 @@ export const MDXContainer = styled.article<{
 
   ul, ol {
     margin: 20px 0;
-    padding-left: 20px;
   };
 
   code {
@@ -193,9 +198,8 @@ export const MDXContainer = styled.article<{
     z-index: 1;
     top: 30%;
     left: 75%;
-    margin: 0 auto;
-    width: 100%;
     max-width: 300px;
+    width: 100%;
     padding: 10px;
 
     li {
@@ -209,21 +213,10 @@ export const MDXContainer = styled.article<{
       };
     };
 
-    ${(props) =>
-    props.$isScrolling && `
+    ${(props) => props.$isScrolling && `
       position: fixed;
-      top: 110px;
-      width:100%;
-      z-index:100;
+      top: 11%;
     `};
-
-    @media (min-width: 1400px) {
-      ${(props) =>
-        props.$isScrolling && `
-       
-      `};
-    };
-
     @media (max-width: 1200px) {
       display: none;
     };
