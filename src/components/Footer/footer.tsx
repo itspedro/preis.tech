@@ -4,17 +4,18 @@ import styled from 'styled-components';
 import FooterCol from './footer-cols';
 import FooterSobre from './footer-about';
 
-const FooterRoot = styled.footer`
+const FooterRoot = styled.footer.attrs({ className: 'bg-footer' })`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  max-height: 300px;
-  height: 100%;
+  justify-content: space-between;
+  max-height: 700px;
+  height: 400px;
   background: linear-gradient(180deg, transparent, ${props => props.theme.secondary});
+  position: relative;
 
   @media (max-width: 768px) {
-    max-height: 500px;
+    height: fit-content;
   };
 `
 
@@ -22,11 +23,14 @@ const FooterContent = styled.div`
   display: flex;
   justify-content: space-between;
   width: 50%;
-  margin: 0 auto;
-  margin-bottom: 50px;
+  margin: auto;
+
+  @media (max-width: 962px) {
+    width: 80%;
+  };
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 50px;
     width: 80%;
   };
@@ -50,9 +54,9 @@ const FooterCopy = styled.div`
   height: 40px;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @media (max-width: 962px) {
     width: 80%;
-  }
+  };
 `
 
 const Copy = styled.p`

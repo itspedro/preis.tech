@@ -34,7 +34,7 @@ const FooterColItem = styled.div<{
   display: flex;
   gap: 5px;
   color: ${props => props.$soon ? props.theme.text70 : props.theme.textLight};
-  font-size: 12px;
+  font-size: 14px;
   font-family: inherit;
   font-style: normal;
   font-weight: 700;
@@ -53,7 +53,7 @@ const FooterColItem = styled.div<{
   `};
 `
 
-const FooterColTitle = styled.h3`
+const FooterColTitle = styled.span`
   color: ${props => props.theme.text80};
   font-size: 13px;
   font-family: inherit;

@@ -9,7 +9,7 @@ const Container = styled.div`
   gap: 8px;
 `
 
-const Title = styled.h3`
+const Title = styled.span`
   color: ${props => props.theme.text80};
   font-size: 13px;
   font-family: inherit;
@@ -21,7 +21,7 @@ const Title = styled.h3`
 
 const Text = styled.p`
   color: ${props => props.theme.text};
-  font-size: 12px;
+  font-size: 14px;
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
