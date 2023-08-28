@@ -25,7 +25,7 @@ const FooterContent = styled.div`
   width: 50%;
   margin: auto;
 
-  @media (max-width: 962px) {
+  @media (max-width: 1400px) {
     width: 80%;
   };
 
@@ -54,7 +54,7 @@ const FooterCopy = styled.div`
   height: 40px;
   align-items: center;
 
-  @media (max-width: 962px) {
+  @media (max-width: 1400px) {
     width: 80%;
   };
 `

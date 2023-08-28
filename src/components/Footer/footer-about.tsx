@@ -7,6 +7,10 @@ const Container = styled.div`
   max-width:  240px;
   width: 100%;
   gap: 8px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+  }
 `
 
 const Title = styled.span`
