@@ -7,7 +7,7 @@ import MainButtons from './main-buttons';
 const ContentRoot = styled.div`
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 450px;
   gap: 36px;
   margin-left: 10%;
   position: relative;
@@ -39,7 +39,7 @@ const Name = styled.span`
 
 const Text = styled.p`
   color: ${props => props.theme.text};
-  font-size: 15px;
+  font-size: 15px !important;
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
@@ -84,7 +84,8 @@ function MainContent() {
         Sou o <Name>Pedro</Name> Reis,
       </Title>
       <Text>
-        Um <strong>desenvolvedor</strong> que adora novos desafios e pensar fora da caixa.
+      Sou completamente dedicado aos estudos sobre desenvolvimento, inclusive, faço
+      alguns <strong>projetos</strong> pessoais para colocar em prática tudo que venho aprendendo.
       </Text>
       <ToolBox />
       <MainButtons />

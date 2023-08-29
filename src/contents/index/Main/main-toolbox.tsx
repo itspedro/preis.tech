@@ -37,7 +37,7 @@ const ToolBoxIcon = styled.div<{color: string}>`
   color: ${props => props.theme.text70};
   transition: 0.3s;
   scale: 1;
-  width: 30px;
+  width: 30px !important;
   height: 30px;
 
   &:hover {

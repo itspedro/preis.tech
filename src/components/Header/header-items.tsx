@@ -19,8 +19,8 @@ const NavList = styled.nav`
 
 const NavItem = styled.div`
   font-family: inherit;
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 400 !important;
+  font-size: 14px !important;
   line-height: 18px;
   list-style: none;
   cursor: pointer;
