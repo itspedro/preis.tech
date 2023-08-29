@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 import PreviewSection from './Preview/preview';
-import { TPostFrontMatter } from '@/types/blog';
+import { TPostFrontMatter } from '@/types/types';
 import { addOpacity } from '@/utils/misc';
 
 const Container = styled.div`

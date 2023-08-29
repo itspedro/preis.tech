@@ -12,3 +12,13 @@ export type TPostFrontMatter = TBaseFrontMatter & {
   tags: Array<string>;
   category: string;
 };
+
+export type TProjectFrontMatter = {
+  date: string;
+  title: string;
+  description: string;
+  image: string;
+  github: string;
+  external: string;
+  tech: Array<string>;
+};

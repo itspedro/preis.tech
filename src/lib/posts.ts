@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import frontMatter from 'front-matter';
-import type { TPostFrontMatter } from '@/types/blog';
+import type { TPostFrontMatter } from '@/types/types';
 
 const postsDirectory = path.join(process.cwd(), 'src', 'blogs');
 
@@ -26,7 +26,7 @@ export function getPostFrontMatter(slug: string): TPostFrontMatter {
 export function getSortedPosts() {
 
   const slugs = getPostSlugs();
-  
+
   const allPostsData = slugs.map((slug) => {
     const data = getPostFrontMatter(slug);
 
@@ -34,22 +34,18 @@ export function getSortedPosts() {
       slug,
       frontMatter: data,
     };
-});
+  });
 
 
   return allPostsData.sort(
-    ({ frontMatter: { date: a } }, {frontMatter: { date: b } }) => {
+    ({ frontMatter: { date: a } }, { frontMatter: { date: b } }) => {
       if (a < b) {
         return 1;
       } else if (a > b) {
-        return -1
+        return -1;
       } else {
         return 0;
       }
     }
   );
 };
-
-function compileMDX(arg0: { source: string; options: { parseFrontmatter: boolean; }; }): { frontmatter: any; content: any; } | PromiseLike<{ frontmatter: any; content: any; }> {
-  throw new Error('Function not implemented.');
-}

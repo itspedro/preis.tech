@@ -1,4 +1,4 @@
-import { TPostFrontMatter } from '@/types/blog';
+import { TPostFrontMatter } from '@/types/types';
 import { addOpacity, formatTime, relativeTime } from '@/utils/misc';
 import styled from 'styled-components';
 import Link from 'next/link';

@@ -5,10 +5,8 @@ import Header from '@/components/Header/header';
 import MDXstyle from '@/components/blog/MDXstyle';
 import PostFooter from '@/components/blog/post-footer';
 import PostHeader from '@/components/blog/post-header';
-import { TPostFrontMatter } from '@/types/blog';
-import { addOpacity } from '@/utils/misc';
+import { TPostFrontMatter } from '@/types/types';
 import styled from 'styled-components';
-
 
 const Container = styled.div`
   padding-bottom: 150px;
@@ -29,13 +27,13 @@ function PostContent({ post, slug }: PostProps) {
           description={post.description}
           date={post.date}
           lang={post.lang}
-        />   
+        />
         <MDXstyle slug={slug} />
         <PostFooter 
           tags={post.tags}
         />
       </Container>
-      <Footer/>
+      <Footer />
     </>
   );
 };

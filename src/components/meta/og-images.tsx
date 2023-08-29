@@ -1,15 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import { TPostFrontMatter } from '@/types/blog';
+import { TPostFrontMatter } from '@/types/types';
 import { addOpacity } from '@/utils/misc';
 import { CSSProperties } from 'react';
-
 
 const styles: Record<string, CSSProperties> = {
   container: {
     background: `linear-gradient(300deg, transparent, ${addOpacity('#55BDB3', 0.2)})`,
     backgroundColor: "#08121B",
     backgroundRepeat: "no-repeat",
-
     backgroundPosition: "top left",
     display: "flex",
     flexDirection: "column",
