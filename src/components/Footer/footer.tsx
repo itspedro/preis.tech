@@ -95,8 +95,7 @@ function Footer() {
               { 
                 id: 3,
                 name: "Projetos",
-                url: "/projetos",
-                $soon: true
+                url: "https://github.com/itsPedro?tab=repositories",
               }
             ]}
           />
