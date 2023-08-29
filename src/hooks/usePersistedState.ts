@@ -1,4 +1,3 @@
-import { isCustomErrorPage } from 'next/dist/build/utils';
 import { useState, useEffect } from 'react';
 
 function usePersistedState(key: string, initialState: any) {
