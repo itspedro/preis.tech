@@ -17,7 +17,7 @@ const NavList = styled.nav`
   };
 `
 
-const NavItem = styled.div`
+const NavItem = styled(Link)`
   font-family: inherit;
   font-weight: 400 !important;
   font-size: 14px !important;
@@ -38,12 +38,12 @@ const NavItem = styled.div`
 function HeaderItems() {
   return (
     <NavList>
-      <Link href="/blog">
-        <NavItem>Blog</NavItem>
-      </Link>
-      <Link href="https://github.com/itsPedro?tab=repositories" target='_blank' passHref={true}>
-        <NavItem>Projetos</NavItem>
-      </Link>
+      <NavItem href="/blog">
+        Blog
+      </NavItem>
+      <NavItem href="https://github.com/itsPedro?tab=repositories" target='_blank' passHref={true}>
+        Projetos
+      </NavItem>
     </NavList>
   );
 };
