@@ -21,18 +21,14 @@ const NavItem = styled(Link)`
   font-family: inherit;
   font-weight: 400 !important;
   font-size: 14px !important;
-  line-height: 18px;
+  line-height: 18px !important;
   list-style: none;
   cursor: pointer;
-  color: ${props => props.theme.textBold};
+  color: ${props => props.theme.text};
 
   &:not(:hover) {
     opacity: 0.6;
   };
-  &:hover {
-    scale: 1.1;
-  };
-
 `
 
 function HeaderItems() {
