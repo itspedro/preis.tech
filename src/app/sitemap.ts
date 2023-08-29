@@ -1,6 +1,17 @@
+import { getPostSlugs } from '@/lib/posts';
 import { MetadataRoute } from 'next';
  
 export default function sitemap(): MetadataRoute.Sitemap {
+
+  const posts = getPostSlugs();
+
+  const postsSitemap = posts.map((slug) => {
+    return {
+      url: `${process.env.URL}/blog/${slug}`,
+      lastModified: new Date(),
+    };
+  });
+
   return [
     {
       url: `${process.env.URL}`,
@@ -18,5 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${process.env.URL}/ferramentas`,
       lastModified: new Date(),
     },
+    ...postsSitemap,
   ];
 };
