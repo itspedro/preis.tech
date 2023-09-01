@@ -34,11 +34,11 @@ const NavItem = styled(Link)`
 function HeaderItems() {
   return (
     <NavList>
-      <NavItem href="https://github.com/itsPedro?tab=repositories" target='_blank' passHref={true}>
-        Projetos
-      </NavItem>
       <NavItem href="/blog">
         Blog
+      </NavItem>
+      <NavItem href="https://github.com/itsPedro?tab=repositories" target='_blank' passHref={true}>
+        Projetos
       </NavItem>
     </NavList>
   );
