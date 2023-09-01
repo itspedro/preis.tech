@@ -1,13 +1,14 @@
 import { styled } from 'styled-components';
 import { ButtonIcon } from '@/components/icons/button-icon';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled(motion.div)`
   display: flex;
   position: relative;
 `
 
-const Button = styled.button`
+const Button = styled(Link)`
   position: relative;
   display: flex;
   align-items: center;
@@ -32,13 +33,21 @@ const Button = styled.button`
   };
 `
 
+const animation = {
+  hide: { x: -15, opacity: 0 },
+  show: { x: 0, opacity: 1, },
+};
+
 function CurriculoButton() {
 
   return (
-    <ButtonContainer>
-      <Link href="https://to.preis.tech/cv">
-          <Button><ButtonIcon/>Currículo</Button>
-      </Link>
+    <ButtonContainer
+      variants={animation}
+      transition={{ delay: 0.5 }}
+    >
+        <Button href="https://to.preis.tech/cv" target="_blank">
+          <ButtonIcon/>Currículo
+        </Button>
     </ButtonContainer>
   );
 };

@@ -9,14 +9,14 @@ import { FigmaIcon } from '@/components/icons/figma-icon';
 import { DartIcon } from '@/components/icons/dart-icon';
 import { NodejsIcon  } from '@/components/icons/nodejs-icon';
 import { FlutterIcon } from '@/components/icons/flutter-icon';
-import { LineIcon } from '@/components/icons/line-icon';
 
+import { motion } from 'framer-motion';
 
 const ToolBoxContent = styled.div`
   color: ${props => props.theme.text70};
 `
 
-const ToolBoxText = styled.p`
+const ToolBoxText = styled(motion.p)`
   font-size: 14px;
   font-family: inherit;
   font-style: normal;
@@ -24,12 +24,12 @@ const ToolBoxText = styled.p`
   line-height: normal;
 `
 
-const ToolBoxIcons = styled.div`
+const ToolBoxIcons = styled(motion.ul)`
   display: flex;
   align-items: center;
 `
 
-const ToolBoxIcon = styled.div<{color: string}>`
+const ToolBoxIcon = styled(motion.li)<{color: string}>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,46 +60,57 @@ const IconLabel = styled.span`
   ${ToolBoxIcon}:hover & {
     display : block;
   };
-
 `
+
+const animation = {
+  hide: { x: -10, opacity: 0 },
+  show: { x: 0, opacity: 1, },
+};
 
 function ToolBox() {
   return(
     <ToolBoxContent>
-      <ToolBoxText>
+      <ToolBoxText
+        initial={animation.hide}
+        animate={animation.show}
+        transition={{ delay: 0.6 }}
+      >
         Stack/Ferramentas atuais:
       </ToolBoxText>
-      <ToolBoxIcons>
-        <ToolBoxIcon color="#007ACC">
+      <ToolBoxIcons
+        initial="hide"
+        animate="show"
+        transition={{ delayChildren: 0.6, staggerChildren: 0.025 }}
+      >
+        <ToolBoxIcon variants={animation} color="#007ACC">
           <TypeScriptIcon />
           <IconLabel>Typescript</IconLabel>
         </ToolBoxIcon>
-        <ToolBoxIcon color="#00A8E1">
+        <ToolBoxIcon variants={animation} color="#00A8E1">
           <DartIcon />
           <IconLabel>Dart</IconLabel>
         </ToolBoxIcon>
-        <ToolBoxIcon color="#83CD29">
+        <ToolBoxIcon variants={animation} color="#83CD29">
           <NodejsIcon />
           <IconLabel>NodeJS</IconLabel>
         </ToolBoxIcon>
-        <ToolBoxIcon color="#38B2AC">
+        <ToolBoxIcon variants={animation} color="#38B2AC">
           <TailWindIcon />
           <IconLabel>TailwindCSS</IconLabel>
         </ToolBoxIcon>
-        <ToolBoxIcon color="#61DAFB">
+        <ToolBoxIcon variants={animation} color="#61DAFB">
           <ReactIcon />
           <IconLabel>React</IconLabel>
         </ToolBoxIcon>
-        <ToolBoxIcon color="#39CEFD">
+        <ToolBoxIcon variants={animation} color="#39CEFD">
           <FlutterIcon />
           <IconLabel>Flutter</IconLabel>
         </ToolBoxIcon>
-        <LineIcon />
-        <ToolBoxIcon color="#F24E1E">
+        <ToolBoxIcon variants={animation} color="#F24E1E">
           <FigmaIcon />
           <IconLabel>Figma</IconLabel>
         </ToolBoxIcon>
-        <ToolBoxIcon color="#3C99D4">
+        <ToolBoxIcon variants={animation} color="#3C99D4">
           <VScodeIcon />
           <IconLabel>VSCode</IconLabel>
         </ToolBoxIcon>

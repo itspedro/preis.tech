@@ -3,11 +3,12 @@ import { ShakingHandIcon } from '@/components/icons/shaking-hand-icon';
 import styled, { keyframes } from 'styled-components';
 import ToolBox from './main-toolbox';
 import MainButtons from './main-buttons';
+import { motion, useAnimationControls } from 'framer-motion';
 
 const ContentRoot = styled.div`
   display: flex;
   flex-direction: column;
-  width: 450px;
+  width: 400px;
   gap: 36px;
   margin-left: 10%;
   position: relative;
@@ -20,7 +21,11 @@ const ContentRoot = styled.div`
   }
 `
 
-const Title = styled.h1`
+const TitleSec = styled.div`
+  position: relative;
+`
+
+const Title = styled(motion.span)`
   font-size: 39px;
   color: ${props => props.theme.textBold};
   font-family: inherit;
@@ -33,13 +38,13 @@ const Title = styled.h1`
   };
 `
 
-const Name = styled.span`
-  color: var(--second-green);
+const Name = styled.strong`
+  color: ${props => props.theme.primary};
 `
 
-const Text = styled.p`
+const Text = styled(motion.p)`
   color: ${props => props.theme.text};
-  font-size: 15px !important;
+  font-size: 14px;
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
@@ -50,42 +55,77 @@ const Text = styled.p`
   }
 `
 
-const balance = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(-10deg);
-  }
-`
-
-const SubTitle = styled.span`
+const SubTitle = styled(motion.span)`
   font-size: 38px;
   color: ${props => props.theme.text70};
   font-family: inherit;
   font-style: thin;
   font-weight: 400;
-
+  position: absolute;
+  top: -50px;
 `
 
-const HandIcon = styled.div`
+const HandIcon = styled(motion.div)`
   display: inline-block;
-  animation: ${balance} 1s ease-in-out infinite alternate;
 `
+
+const animation = {
+  hide: { x: -32, opacity: 0 },
+  show: { x: 0, opacity: 1, },
+};
 
 function MainContent() {
+  const controls = useAnimationControls();
+
+  React.useEffect(() => {
+    controls.start({
+      opacity: 1,
+      y: 0,
+      rotate: 0,
+    });
+  }, [controls]);
+
   return (
     <ContentRoot>
-      <Title>
-        <SubTitle>
-          Olá! <HandIcon><ShakingHandIcon /></HandIcon>
-          <br/>
+      <TitleSec>
+        <SubTitle
+          initial={animation.hide}
+          animate={animation.show}
+          transition={{ delay: 0.1 }}
+        >
+          Olá! 
+          <HandIcon
+            initial={{
+              opacity: 0,
+              y: 16,
+              rotate: 30,
+              transformOrigin: 'right center',
+            }}
+            animate={controls}
+            transition={{
+              type: 'spring',
+              delay: 0.35,
+              bounce: 0.7,
+              duration: 0.7,
+            }}
+          >
+            <ShakingHandIcon/>
+          </HandIcon>
         </SubTitle>
-        Sou o <Name>Pedro</Name> Reis,
-      </Title>
-      <Text>
-      Sou completamente dedicado aos estudos sobre desenvolvimento, inclusive, faço
-      alguns <strong>projetos</strong> pessoais para colocar em prática tudo que venho aprendendo.
+        <Title
+          initial={animation.hide}
+          animate={animation.show}
+          transition={{ delay: 0.2 }}
+        >
+          Sou o <Name>Pedro</Name> Reis,
+        </Title>
+      </TitleSec>
+      <Text
+        initial={animation.hide}
+        animate={animation.show}
+        transition={{ delay: 0.3 }}
+      >
+        Um <strong>desenvolvedor</strong> que adora novos desafios e pensar fora da caixa.
       </Text>
       <ToolBox />
       <MainButtons />

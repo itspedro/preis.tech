@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import { styled } from 'styled-components';
+import { motion } from 'framer-motion';
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled(motion.div)`
   display: flex;
   position: relative;
 `
 
-const Button = styled.button`
+const Button = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #FFF;
   font-size: 14px;
   font-family: inherit;
@@ -25,13 +29,22 @@ const Button = styled.button`
   };
 `
 
+const animation = {
+  hide: { x: -15, opacity: 0 },
+  show: { x: 0, opacity: 1, },
+};
+
+
 function TalkButton() {
 
   return (
-    <ButtonContainer>
-      <Link href="mailto:contato@preis.tech">
-        <Button>Vamos Conversar</Button>
-      </Link>
+    <ButtonContainer
+      variants={animation}
+      transition={{ delay: 0.4 }}
+    >
+      <Button href="/contato">
+        Entre em contato!
+      </Button>
     </ButtonContainer>
   );
 };
