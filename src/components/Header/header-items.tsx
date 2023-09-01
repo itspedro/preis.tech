@@ -19,12 +19,12 @@ const NavList = styled.nav`
 
 const NavItem = styled(Link)`
   font-family: inherit;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-size: 14px !important;
   line-height: 18px !important;
   list-style: none;
   cursor: pointer;
-  color: ${props => props.theme.text};
+  color: ${props => props.theme.primary};
 
   &:not(:hover) {
     opacity: 0.6;
@@ -34,11 +34,11 @@ const NavItem = styled(Link)`
 function HeaderItems() {
   return (
     <NavList>
-      <NavItem href="/blog">
-        Blog
-      </NavItem>
       <NavItem href="https://github.com/itsPedro?tab=repositories" target='_blank' passHref={true}>
         Projetos
+      </NavItem>
+      <NavItem href="/blog">
+        Blog
       </NavItem>
     </NavList>
   );

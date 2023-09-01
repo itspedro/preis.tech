@@ -37,12 +37,21 @@ const ToggleThemeButton = styled.button`
   };
 `
 
-const Icons = styled.div`
+const Icons = styled(Link)`
   color: ${props => props.theme.icons};
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 10px;
+
+  background-color: rgba(85, 189, 179, 0.1);
+  &:hover {
+    background-color: rgba(85, 189, 179, 0.3);
+  };
 `
 
 function HeaderControl() {
@@ -51,11 +60,9 @@ function HeaderControl() {
 
   return(
     <ControlContainer>
-      <Link aria-label="GitHub" href="https://github.com/itsPedro">
-        <Icons>
-          <GithubIcon />
-        </Icons>
-      </Link>
+      <Icons aria-label="GitHub" href="https://github.com/itsPedro" target='_blank' passHref={true}>
+        <GithubIcon /> @itspedro
+      </Icons>
       <LineIcon />
       <ToggleThemeButton aria-label="Tema" onClick={toggleTheme}>
         {themeTitle === 'light' ? <DarkThemeIcon /> : <LightThemeIcon />}
