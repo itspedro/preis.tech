@@ -34,9 +34,9 @@ const Tag = styled.span`
   font-size: 14px;
   font-weight: 400;
   color: ${props => props.theme.primary};
-  background-color: ${props => addOpacity(props.theme.primary, 0.4)};
+  background-color: ${addOpacity('#38817a', 0.2)};
   border-radius: 10px;
-  padding: 3px;
+  padding: 5px 10px;
 `
 
 interface PostFooterProps {
