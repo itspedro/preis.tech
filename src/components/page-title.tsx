@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const Title = styled.h2`
   font-size: 60px;
@@ -11,7 +12,7 @@ const Title = styled.h2`
   };
 `
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: relative;
@@ -37,6 +38,11 @@ const Desc = styled.p`
   };
 `
 
+const animation = {
+  hide: { x: -38, opacity: 0 },
+  show: { x: 0, opacity: 1, },
+};
+
 interface PageTitleProps {
   title: string;
   description: string;
@@ -44,7 +50,11 @@ interface PageTitleProps {
 
 function PageTitle({title, description}: PageTitleProps) {
   return (
-    <Container>
+    <Container
+      initial={animation.hide}
+      animate={animation.show}
+      transition={{ delay: 0.1 }}
+    >
       <Title>
         {title}
       </Title>
