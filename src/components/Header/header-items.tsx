@@ -37,7 +37,7 @@ function HeaderItems() {
       <NavItem href="/blog">
         Blog
       </NavItem>
-      <NavItem href="https://github.com/itsPedro?tab=repositories" target='_blank' passHref={true}>
+      <NavItem href="/#projetos">
         Projetos
       </NavItem>
     </NavList>

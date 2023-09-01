@@ -25,13 +25,13 @@ function FooterIcons() {
   return(
     <Icons>
       
-      <Link aria-label="GitHub"  href="https://github.com/itsPedro">
+      <Link aria-label="GitHub"  href="https://github.com/itsPedro" target="_blank">
         <Icon>
           <GithubIcon />
         </Icon>
       </Link>
       
-      <Link aria-label="Linkedin" href="https://www.linkedin.com/in/itspedro">
+      <Link aria-label="Linkedin" href="https://www.linkedin.com/in/itspedro" target="_blank">
         <Icon>
           <LinkedinIcon/>
         </Icon>

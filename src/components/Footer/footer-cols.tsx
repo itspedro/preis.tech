@@ -51,11 +51,7 @@ const FooterColItem = styled.div<{
       color: ${props.theme.textBold};
     };
   `};
-  ${(props) =>
-    props.$soon &&
-    `
-    pointer-events: none;
-  `};
+
 `;
 
 const FooterColTitle = styled.span`
@@ -67,6 +63,11 @@ const FooterColTitle = styled.span`
   line-height: normal;
   letter-spacing: 0.8px;
 `;
+
+const WrapLink = styled.div`
+  display: flex;
+  gap: 5px;
+`
 
 const Label = styled.span`
   color: ${(props) => props.theme.textLight};
@@ -82,6 +83,8 @@ const Label = styled.span`
   border-radius: 10px;
   padding: 2px 4px;
   text-align: center;
+  display: inline-block;
+  width: fit-content;
 
   @media (max-width: 768px) {
     font-size: 8px;
@@ -100,7 +103,7 @@ const ExternalLink = styled(Link)`
   svg {
     width: 12px;
   }
-`;
+`
 
 const isExternalLink = (link: string): boolean => {
   return link.includes("http");
@@ -115,24 +118,28 @@ function FooterCol(props: FooterColsProps) {
           link.$soon = link.$soon ?? false;
           link.$new = link.$new ?? false;
           return isExternalLink(link.url) ? (
-            <ExternalLink key={link.id} href={link.url} target='_blank' passHref>
-              <FooterColItem $soon={link.$soon} $new={link.$new}>
-                {link.name}
-                <ExternalLinkIcon />
-                {link.$soon || link.$new ? (
-                  <Label>{link.$soon ? "EM BREVE" : "NOVO"}</Label>
-                ) : null}
-              </FooterColItem>
-            </ExternalLink>
+            <WrapLink>
+              <ExternalLink key={link.id} href={link.url} target='_blank' passHref>
+                <FooterColItem $soon={link.$soon} $new={link.$new}>
+                  {link.name}
+                  <ExternalLinkIcon />
+                </FooterColItem>
+              </ExternalLink>
+              {link.$soon || link.$new ? (
+                <Label>{link.$soon ? "EM BREVE" : "NOVO"}</Label>
+              ) : null}
+            </WrapLink>
           ) : (
-            <Link key={link.id} href={!link.$soon ? link.url : ""} passHref>
-              <FooterColItem $soon={link.$soon} $new={link.$new}>
-                {link.name}
-                {link.$soon || link.$new ? (
-                  <Label>{link.$soon ? "EM BREVE" : "NOVO"}</Label>
-                ) : null}
-              </FooterColItem>
-            </Link>
+            <WrapLink>
+              <Link key={link.id} href={!link.$soon ? link.url : ""} passHref>
+                <FooterColItem $soon={link.$soon} $new={link.$new}>
+                  {link.name}
+                </FooterColItem>
+              </Link>
+              {link.$soon || link.$new ? (
+                <Label>{link.$soon ? "EM BREVE" : "NOVO"}</Label>
+              ): null}
+            </WrapLink>
           );
         })}
       </Links>
