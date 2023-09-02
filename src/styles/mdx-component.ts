@@ -133,9 +133,8 @@ export const MDXContainer = styled.article<{
       &::before {
         content: '';
         position: absolute;
-        top: 50%;
         left: 0;
-        transform: translateY(-50%);
+        transform: translateY(50%);
         width: 12px;
         height: 12px;
         border-radius: 4px;
