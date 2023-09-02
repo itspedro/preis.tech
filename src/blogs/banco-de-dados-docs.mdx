@@ -4,83 +4,50 @@ date: '2023-09-01 11:15:00'
 description: Este é um trabalho direcionado a disciplina de banco de dados.
 lang: pt-br
 tags:
-    - DB
+    - Banco de dados
+    - Documentação
+    - Trabalho
 ---
-O processo de desenvolvimento de um banco de dados sem dúvidas é uma das etapas mais importantes, afinal ter uma arquitetura mal desenhada impacta diretamente na performance do sistema.
 
-Nesse artigo vamos passar por todas as etapas de elaboração de um banco de dados, representando o mais fielmente possível do tema proposto: "Instituição acadêmica".
+O processo de elaboração um banco de dados é uma das etapas mais importantes, afinal ter uma arquitetura mal desenhada impacta diretamente na performance do sistema.
+Vamos documentar todo processo de elaboração de um banco de dados, representando o mais fielmente possível do tema proposto: **"Instituição acadêmica"**.
+
+---
 
 # Análise de requisitos
 
 A primeira etapa foi a análise de requisitos, que é fundamental para o desenvolvimento de qualquer sistema, pois é nela que vamos entender o que o cliente precisa e como podemos atender essas necessidades.
 
-- **Definição do escopo:** Analisamos o escopo do projeto e definimos o que será feito e o que não será feito.
-- **Documentação dos requisitos:** Documentamos os requisitos funcionais e não funcionais do sistema.
+## Documentação dos requisitos
 
-## Definindo o escopo
+A documentação dos requisitos é a etapa onde vamos decidir os requisitos funcionais e não funcionais do sistema.
 
-O escopo do projeto é a definição do que será feito e o que não será feito, ou seja, é a definição do que o sistema vai fazer e o que ele não vai fazer.
 
 ### O que será feito
 
-- Cadastro de alunos.
-- Cadastro de funcionários.
-- Cadastro de professores (Entidade separada).
-- Cadastro de cursos.
-- Cadastro de disciplinas.
-- Cadastro de notas.
-
-### O que não será feito
-
-- Sistema de gestão financeira.
-- Sistema de controle de estoque.
-- Módulo de gerenciamento de recursos humanos.
-
-## Documentação dos requisitos
-
-A documentação dos requisitos é a etapa onde vamos documentar os requisitos funcionais e não funcionais do sistema.
+- Cadastro de aluno.
+- Cadastro de funcionário.
+- Cadastro de professor (Entidade separada).
+- Cadastro de curso.
+- Cadastro de disciplina.
+- Cadastro de nota.
 
 ### Requisitos funcionais
 
-Os requisitos funcionais são os requisitos que definem o que o sistema deve fazer.
-
-**Cadastro de Alunos:**
-
-- O sistema deve permitir o cadastro de informações dos alunos, incluindo nome, matrícula, data de nascimento, endereço e contato.
-- Deve ser possível associar os alunos a cursos e disciplinas.
-
-**Cadastro de Funcionário:**
-
-- O sistema deve permitir o cadastro de informações dos funcionários, incluindo nome, número de registro, cargo e dados de contato.
-- Caso o funcionário seja um professor deve relacionar a entidade ao funcionário, com informações como área de especialização.
-- Deve ser possível atribuir disciplinas aos professores.
-
-**Cadastro de Cursos:**
-
-- O sistema deve possibilitar o registro de informações sobre os cursos oferecidos pela instituição, incluindo nome do curso e descrição.
-
-**Cadastro de Disciplinas:**
-
-- Deve ser possível cadastrar informações sobre as disciplinas, incluindo nome da disciplina e professor responsável.
-
-**Cadastro de Notas:**
-
-- O sistema deve permitir que os professores insiram notas dos alunos para cada disciplina.
-- Deve calcular automaticamente a média das notas e atualizar o desempenho do aluno.
+- **Aluno:** Permitir o cadastro de informações dos alunos, incluindo matrícula (chave primária), nome, data de nascimento e dados de contato, além de ser possível associar os alunos a cursos e disciplinas.
+- **Funcionário:** Permitir o cadastro de informações dos funcionários, incluindo número de registro (chave primária), nome, data de nascimento, cargo e dados de contato.
+- **Professor:** Caso o funcionário seja um professor deve relacionar a entidade ao funcionário, com informações como área de especialização, além de ser possível atribuir disciplinas aos professores.
+- **Curso:** Permitir o registro de informações sobre os cursos oferecidos pela instituição, incluindo nome do curso e descrição.
+- **Disciplina:** Ser possível cadastrar informações sobre as disciplinas, incluindo nome da disciplina e professor responsável.
+- **Nota:** Permitir que os professores insiram notas dos alunos para cada disciplina, calcular automaticamente a média das notas e atualizar o desempenho do aluno.
 
 ### Requisitos não funcionais
 
-**Segurança:**
+- **Segurança:** Garantir a segurança dos dados, com acesso restrito a usuários autorizados.
+- **Disponibilidade:** Estar disponível 24/7.
+- **Escalabilidade:** Ser escalável para acomodar o possível crescimento futuro da instituição, permitindo a adição de novos cursos, disciplinas e alunos.
 
-- O sistema deve garantir a segurança dos dados dos alunos e professores, com acesso restrito a usuários autorizados.
-
-**Disponibilidade:**
-
- - O sistema deve estar disponível 24/7, com manutenções programadas realizadas fora do horário de maior uso.
-
-**Escalabilidade:**
-
-- O sistema deve ser escalável para acomodar o crescimento futuro da instituição, permitindo a adição de novos cursos, disciplinas e alunos.
+---
 
 # Modelo conceitual
 
