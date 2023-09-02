@@ -37,7 +37,7 @@ const ToolBoxIcon = styled(motion.li)<{color: string}>`
   color: ${props => props.theme.text70};
   transition: 0.3s;
   scale: 1;
-  width: 30px !important;
+  width: 30px;
   height: 30px;
 
   &:hover {
@@ -53,12 +53,12 @@ const IconLabel = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  display: none;
+  display: none !important;
   color: ${props => props.theme.text70};
   top: 30px;
 
   ${ToolBoxIcon}:hover & {
-    display : block;
+    display : block !important;
   };
 `
 
