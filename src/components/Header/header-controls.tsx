@@ -47,10 +47,8 @@ const Icons = styled(Link)`
   cursor: pointer;
   padding: 8px;
   border-radius: 10px;
-
-  background-color: rgba(85, 189, 179, 0.1);
   &:hover {
-    background-color: rgba(85, 189, 179, 0.3);
+    background-color: rgba(85, 189, 179, 0.1);
   };
 `
 
@@ -61,7 +59,7 @@ function HeaderControl() {
   return(
     <ControlContainer>
       <Icons aria-label="GitHub" href="https://github.com/itsPedro" target='_blank' passHref={true}>
-        <GithubIcon /> @itspedro
+        <GithubIcon />
       </Icons>
       <LineIcon />
       <ToggleThemeButton aria-label="Tema" onClick={toggleTheme}>
