@@ -4,7 +4,7 @@ date: '2023-09-01 11:15:00'
 description: Este é um trabalho direcionado a disciplina de banco de dados.
 lang: pt-br
 tags:
-    - Banco de dados
+    - DB
     - Documentação
     - Trabalho
 ---
@@ -20,8 +20,7 @@ A primeira etapa foi a análise de requisitos, que é fundamental para o desenvo
 
 ## Documentação dos requisitos
 
-A documentação dos requisitos é a etapa onde vamos decidir os requisitos funcionais e não funcionais do sistema.
-
+A documentação dos requisitos é a etapa onde vamos decidir os requisitos do sistema.
 
 ### O que será feito
 
@@ -32,20 +31,19 @@ A documentação dos requisitos é a etapa onde vamos decidir os requisitos func
 - Cadastro de disciplina.
 - Cadastro de nota.
 
-### Requisitos funcionais
+### Requisitos
 
-- **Aluno:** Permitir o cadastro de informações dos alunos, incluindo matrícula (chave primária), nome, data de nascimento e dados de contato, além de ser possível associar os alunos a cursos e disciplinas.
-- **Funcionário:** Permitir o cadastro de informações dos funcionários, incluindo número de registro (chave primária), nome, data de nascimento, cargo e dados de contato.
-- **Professor:** Caso o funcionário seja um professor deve relacionar a entidade ao funcionário, com informações como área de especialização, além de ser possível atribuir disciplinas aos professores.
-- **Curso:** Permitir o registro de informações sobre os cursos oferecidos pela instituição, incluindo nome do curso e descrição.
-- **Disciplina:** Ser possível cadastrar informações sobre as disciplinas, incluindo nome da disciplina e professor responsável.
-- **Nota:** Permitir que os professores insiram notas dos alunos para cada disciplina, calcular automaticamente a média das notas e atualizar o desempenho do aluno.
+**Aluno:** Permitir o cadastro de informações dos alunos, incluindo matrícula (chave primária), nome, data de nascimento e dados de contato, além de ser possível associar os alunos a cursos e disciplinas.
 
-### Requisitos não funcionais
+**Funcionário:** Permitir o cadastro de informações dos funcionários, incluindo número de registro (chave primária), nome, data de nascimento, cargo e dados de contato.
 
-- **Segurança:** Garantir a segurança dos dados, com acesso restrito a usuários autorizados.
-- **Disponibilidade:** Estar disponível 24/7.
-- **Escalabilidade:** Ser escalável para acomodar o possível crescimento futuro da instituição, permitindo a adição de novos cursos, disciplinas e alunos.
+**Professor:** Caso o funcionário seja um professor deve relacionar a entidade ao funcionário, com informações como área de especialização, além de ser possível atribuir disciplinas aos professores.
+
+**Curso:** Permitir o registro de informações sobre os cursos oferecidos pela instituição, incluindo nome do curso e descrição.
+
+**Disciplina:** Ser possível cadastrar informações sobre as disciplinas, incluindo nome da disciplina e professor responsável.
+
+**Nota:** Permitir que os professores insiram notas dos alunos para cada disciplina, calcular automaticamente a média das notas e atualizar o desempenho do aluno.
 
 ---
 
@@ -54,3 +52,107 @@ A documentação dos requisitos é a etapa onde vamos decidir os requisitos func
 Começamos com a criação do modelo conceitual, que é a representação do banco de dados de forma abstrata, sem se preocupar com os detalhes de implementação.
 
 ![Imagem do modelo conceitual](https://i.imgur.com/mo71IDx.png)
+
+## Relacionamentos
+
+- Um aluno está associado a vários cursos e disciplinas.
+- Um funcionário pode ser um professor.
+- Um professor leciona várias disciplinas.
+- Uma disciplina tem um professor responsável.
+- Uma turma contém cursos e disciplinas.
+- Notas são atribuídas a alunos em disciplinas.
+
+---
+
+# Modelo Lógico
+
+Com base no modelo conceitual, desenvolvemos o modelo lógico, que descreve como as entidades e relacionamentos serão implementados em termos de tabelas e chaves.
+
+## Conceito
+
+**Tabela Aluno**
+- Matrícula (Chave Primária)
+- Nome
+- Data de Nascimento
+- Dados de Contato
+
+**Tabela Funcionário**
+- Registro (Chave Primária)
+- Nome
+- Data de Nascimento
+- Cargo
+- Dados de Contato
+
+**Tabela Professor**
+- ID do Professor (Chave Primária)
+- Área de Especialização
+- Funcionário (Chave Estrangeira de Funcionário)
+
+**Tabela Disciplina**
+- ID da Disciplina (Chave Primária)
+- Nome da Disciplina
+- Professor Responsável (Chave Estrangeira de Professor)
+
+**Tabela Nota**
+- Valor
+- Aluno (Chave Estrangeira de Aluno)
+- Disciplina (Chave Estrangeira de Disciplina)
+
+**Tabela Curso**
+- ID do Curso (Chave Primária)
+- Nome do Curso
+
+**Tabela Turma**
+- ID da Turma (Chave Primária)
+- Curso (Chave Estrangeira de Curso)
+- Disciplina (Chave Estrangeira de Disciplina)
+
+## Exemplos
+
+**Tabela Aluno:**
+
+| Matrícula (Chave Primária) | Nome              | Nasc.              | Dados de Contato   |
+| -------------------------- | ----------------- | ------------------ | ------------------ |
+| 123456                     | Carinha da Silva  | 1995-02-15         | carinha@email.com  |
+| 789012                     | Aluno da Silva2   | 1998-05-22         | aluno@email.com    |
+| ...                        | ...               | ...                | ...                |
+
+**Tabela Funcionário:**
+
+| Registro (Chave Primária) | Nome               | Nasc.              | Cargo           | Dados de Contato    |
+| ------------------------- | ------------------ | ------------------ | --------------- | ------------------- |
+| 001                       | Pessoa Oliveira    | 1990-10-08         | Secretária      | pessoa@email.com    |
+| 002                       | Professor Oliveira2| 1985-04-20         | Professor       | professor@email.com |
+| ...                       | ...                | ...                | ...             | ...                 |
+
+**Tabela Professor:**
+
+| ID do Professor (Chave Primária)  | Área de Especialização | Funcionário (Chave Estrangeira) |
+| --------------------------------- | ---------------------- | ------------------------------- |
+| 001                               | Matemática             | 002                             |
+| 002                               | História               | 004                             |
+| ...                               | ...                    | ...                             |
+
+**Tabela Disciplina:**
+
+| ID da Disciplina (Chave Primária) | Nome da Disciplina    | Professor Responsável (Chave Estrangeira) |
+| --------------------------------- | --------------------- | ----------------------------------------- |
+| 201                               | Cálculo I             | 001                                       |
+| 202                               | História do Brasil    | 002                                       |
+| ...                               | ...                   | ...                                       |
+
+**Tabela Nota:**
+
+| Valor | Aluno (Chave Estrangeira) | Disciplina (Chave Estrangeira)  |
+| ----- | ------------------------- | ------------------------------- |
+| 8.5   | 123456                    | 201                             |
+| 7.0   | 789012                    | 202                             |
+| ...   | ...                       | ...                             |
+
+**Tabela Curso:**
+
+| ID do Curso (Chave Primária) | Nome do Curso           |
+| ---------------------------- | ----------------------- |
+| 101                          | Engenharia Elétrica     |
+| 102                          | Técnico em informática  |
+| ...                          | ...                     |
