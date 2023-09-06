@@ -214,7 +214,10 @@ export const MDXContainer = styled.article<{
 
     ${(props) => props.$isScrolling && `
       position: fixed;
-      top: 11%;
+      top: 20%;
+      @media (min-width: 1400px) {
+        top: 11%;
+      };
     `};
     @media (max-width: 1200px) {
       display: none;
