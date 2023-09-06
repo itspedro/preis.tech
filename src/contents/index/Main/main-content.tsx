@@ -125,7 +125,7 @@ function MainContent() {
         animate={animation.show}
         transition={{ delay: 0.3 }}
       >
-        Um <strong>desenvolvedor</strong> que adora novos desafios e pensar fora da caixa.
+        Sou um <strong>desenvolvedor</strong> autodidata, tento sempre criar experiências web modernas e fáceis de usar.
       </Text>
       <ToolBox />
       <MainButtons />
