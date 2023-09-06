@@ -134,7 +134,7 @@ export const MDXContainer = styled.article<{
         content: '';
         position: absolute;
         left: 0;
-        transform: translateY(50%);
+        transform: translateY(75%);
         width: 12px;
         height: 12px;
         border-radius: 4px;
