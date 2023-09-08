@@ -78,7 +78,7 @@ function Footer() {
         <FooterSobre />
         <FooterCols>
           <FooterCol 
-            title="Trabalho"
+            title="Este site"
             links={[
               { 
                 id: 1,
@@ -89,22 +89,11 @@ function Footer() {
                 id: 2,
                 name: "Ferramentas",
                 url: "/ferramentas",
-              }
-            ]}
-          />
-          <FooterCol 
-            title="Este site"
-            links={[
+              },
               { 
                 id: 3,
                 name: "Blog",
                 url: "/blog",
-              },
-              {
-                id: 4,
-                name: "Sobre",
-                url: "/sobre",
-                $soon: true
               }
             ]}
             />
@@ -112,17 +101,17 @@ function Footer() {
             title="Links úteis"
             links={[
               { 
-                id: 5,
+                id: 4,
                 name: "Currículo",
                 url: "https://to.preis.tech/cv"
               },
               {
-                id: 6,
+                id: 5,
                 name: "Código Fonte",
                 url: "https://github.com/itsPedro/preis.tech",
               },
               { 
-                id: 7,
+                id: 6,
                 name: "Mais Projetos",
                 url: "https://github.com/itsPedro?tab=repositories",
                 $new: true
