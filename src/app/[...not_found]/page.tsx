@@ -1,5 +1,5 @@
 
-import NotFoundContents from '@/contents/404';
+import { NotFoundContents } from '@/contents/not-found';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

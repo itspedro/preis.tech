@@ -2,7 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import frontMatter from 'front-matter';
 import type { TPostFrontMatter } from '@/types/types';
-
+import { notFound } from 'next/navigation'
+ 
 const postsDirectory = path.join(process.cwd(), 'src', 'blogs');
 
 export function getPostSlugs() {
@@ -16,6 +17,9 @@ export function getPostSlugs() {
 export function getPostFrontMatter(slug: string): TPostFrontMatter {
 
   const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+  if (!fs.existsSync(fullPath)) {
+    notFound();
+  };
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   const { attributes } = frontMatter<TPostFrontMatter>(fileContents);

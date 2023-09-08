@@ -54,7 +54,7 @@ const TextAnchor = styled(Link)`
   }
 `
 
-function NotFoundContents() {
+export function NotFoundContents() {
   return (
     <Container>
       <Title>404</Title>
@@ -65,7 +65,19 @@ function NotFoundContents() {
         Clique para voltar a página inicial
       </TextAnchor>
     </Container>
-  )
-}
+  );
+};
 
-export default NotFoundContents;
+export function NotFoundBlogContents() {
+  return (
+    <Container>
+      <Title>😓</Title>
+      <Content>
+        Este post não existe ou foi removido.
+      </Content>
+      <TextAnchor href="/blog">
+        Todos os posts
+      </TextAnchor>
+    </Container>
+  );
+};
