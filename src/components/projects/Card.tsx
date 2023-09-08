@@ -137,10 +137,10 @@ function CardComponent({ props }: CardProps) {
           ))}
         </TagsSection>
         <LinkIconSection>
-          <LinkIcon href={props.github} target="_blank">
+          <LinkIcon aria-label="GitHub" href={props.github} target="_blank">
             <GithubIcon />
           </LinkIcon>
-          <LinkIcon href={props.external} target="_blank">
+          <LinkIcon aria-label="Preview" href={props.external} target="_blank">
             <ExternalLinkIcon />
           </LinkIcon>
         </LinkIconSection>
