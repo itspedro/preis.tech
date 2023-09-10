@@ -46,19 +46,19 @@ const ToolBoxIcon = styled(motion.li)<{color: string}>`
   };
 `
 
-const IconLabel = styled.span`
+const IconLabel = styled.p`
   position: absolute;
   font-size: 12px;
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  display: none !important;
+  display: none;
   color: ${props => props.theme.text70};
   top: 30px;
 
   ${ToolBoxIcon}:hover & {
-    display : block !important;
+    display : block;
   };
 `
 

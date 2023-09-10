@@ -27,9 +27,10 @@ const Card = styled.div`
 
 const Letters = styled.div`
   position: absolute;
-  top: 0;
-  height: 100%;
+  height: 50%;
   width: 50%;
+  padding: 3%;
+  padding-top: 8%;
   color: ${props => props.theme.textBold};
   font-size: 0.8rem;
   font-weight: 500;
@@ -83,7 +84,7 @@ function MainCharacters() {
   );
 
   const handleOnMove = () => {
-    setContent(randomString(1500));
+    setContent(randomString(400));
   };
 
   return (
