@@ -1,6 +1,6 @@
 import React from 'react';
 import { ShakingHandIcon } from '@/components/icons/shaking-hand-icon';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import ToolBox from './main-toolbox';
 import MainButtons from './main-buttons';
 import { motion, useAnimationControls } from 'framer-motion';
@@ -14,8 +14,6 @@ const ContentRoot = styled.div`
   position: relative;
 
   @media (min-width: 768px) {
-    justify-content: center;
-    align-items: center;
     gap: 48px;
     margin-left: 0;
   }
