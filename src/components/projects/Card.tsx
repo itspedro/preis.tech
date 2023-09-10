@@ -1,7 +1,7 @@
 import { TProjectFrontMatter } from '@/types/types';
 import styled from 'styled-components';
 import { addOpacity } from '@/utils/misc';
-import CustomImage from '../CustomImage';
+import Image from 'next/image';
 import { ExternalLinkIcon } from "../icons/external-link-icon";
 import { GithubIcon } from '../icons/github-icon';
 import Link from 'next/link';
@@ -145,9 +145,15 @@ function CardComponent({ props }: CardProps) {
           </LinkIcon>
         </LinkIconSection>
         <ImageSection href={props.external} target="_blank">
-        <CustomImage
+        <Image
           src={props.image}
           alt={props.title}
+          width={300}
+          height={164}
+          layout="responsive"
+          objectFit="cover"
+          quality={100}
+          
         />
       </ImageSection>
       </CardContent>
