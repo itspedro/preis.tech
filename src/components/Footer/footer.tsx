@@ -3,8 +3,9 @@
 import styled from 'styled-components';
 import FooterCol from './footer-cols';
 import FooterSobre from './footer-about';
+import { CodeIcon } from '../icons/code-icon';
 
-const FooterRoot = styled.footer.attrs({ className: 'bg-footer' })`
+const FooterRoot = styled.footer.attrs({ className: 'bg-image' })`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +17,11 @@ const FooterRoot = styled.footer.attrs({ className: 'bg-footer' })`
 
   @media (max-width: 768px) {
     height: fit-content;
+  };
+
+  &::before {
+    mask-image: linear-gradient(to top, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
   };
 `
 
@@ -53,13 +59,6 @@ const FooterCopy = styled.div`
   border-top: 1px solid #C9C9C933;
   height: 40px;
   align-items: center;
-
-  @media (max-width: 1400px) {
-    width: 80%;
-  };
-`
-
-const Copy = styled.p`
   color:  rgba(196, 196, 196, 0.80);
   font-size: 10px;
   font-family: inherit;
@@ -67,11 +66,18 @@ const Copy = styled.p`
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 0.7px;
+
+  @media (max-width: 1400px) {
+    width: 80%;
+  };
+`
+
+const Copy = styled.span`
+  width: 15px;
 `
 
 
 function Footer() {
-  const code = '</>';
   return (
     <FooterRoot>
       <FooterContent>
@@ -121,8 +127,8 @@ function Footer() {
         </FooterCols>
       </FooterContent>
       <FooterCopy>
-        <Copy>© 2023 Pedro Reis.</Copy>
-        <Copy>{code}</Copy>
+        © 2023 Pedro Reis.
+        <Copy><CodeIcon /></Copy>
       </FooterCopy>
     </FooterRoot>
   );

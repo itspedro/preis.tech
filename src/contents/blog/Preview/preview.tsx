@@ -16,7 +16,12 @@ const Root = styled.div.attrs({ className: 'bg-image' })`
 
   @media (max-width: 768px) {
     width: 100%;
-  }
+  };
+
+  &::before {
+    mask-image: linear-gradient(to bottom, black 20%, transparent 60%);
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 60%);
+  };
 `;
 const CardContainer = styled.div`
   display: flex;

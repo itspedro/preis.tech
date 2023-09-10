@@ -17,6 +17,11 @@ const Root = styled.div.attrs({ className: 'bg-image' })`
     transparent 100%
   );
   padding: 200px 16px;
+
+  &::before {
+    mask-image: linear-gradient(to bottom, black 20%, transparent 60%);
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 60%);
+  };
 `;
 
 const Container = styled.div`
