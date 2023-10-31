@@ -109,31 +109,39 @@ Com base no modelo conceitual, desenvolvemos o modelo lógico, que descreve como
 
 ## Exemplos
 
-**Tabela Aluno:**
+**Tabela Aluno**
 
 | Matrícula (Chave Primária) | Nome              | Nasc.              | Dados de Contato   |
 | -------------------------- | ----------------- | ------------------ | ------------------ |
-| 123456                     | Carinha da Silva  | 1995-02-15         | carinha@email.com  |
-| 789012                     | Aluno da Silva2   | 1998-05-22         | aluno@email.com    |
+| 123456                     | Giuseppe Cadura   | 1995-02-15         | messi@email.com    |
+| 789012                     | Ballan Sarrola    | 1998-05-22         | aluno@email.com    |
 | ...                        | ...               | ...                | ...                |
 
-**Tabela Funcionário:**
+**Tabela Funcionário**
 
 | Registro (Chave Primária) | Nome               | Nasc.              | Cargo           | Dados de Contato    |
 | ------------------------- | ------------------ | ------------------ | --------------- | ------------------- |
-| 001                       | Pessoa Oliveira    | 1990-10-08         | Secretária      | pessoa@email.com    |
-| 002                       | Professor Oliveira2| 1985-04-20         | Professor       | professor@email.com |
+| 001                       | Pessoa Oliveira    | 1990-10-08         | Professor       | pessoa@email.com    |
+| 002                       | Professor da Silva | 1985-04-20         | Professor       | professor@email.com |
 | ...                       | ...                | ...                | ...             | ...                 |
 
-**Tabela Professor:**
+**Tabela Professor**
 
-| ID do Professor (Chave Primária)  | Área de Especialização | Funcionário (Chave Estrangeira) |
-| --------------------------------- | ---------------------- | ------------------------------- |
-| 001                               | Matemática             | 002                             |
-| 002                               | História               | 004                             |
-| ...                               | ...                    | ...                             |
+| Área de Especialização | Funcionário (Chave Estrangeira) |
+| ---------------------- | ------------------------------- |
+| Matemática             | 002                             |
+| História               | 001                             |
+| ...                    | ...                             |
 
-**Tabela Disciplina:**
+**Tabela Curso**
+
+| ID do Curso (Chave Primária) | Nome do Curso           | Descrição                                      |
+| ---------------------------- | ----------------------- | ---------------------------------------------- |
+| 101                          | Engenharia Elétrica     | Graduação em Engenharia Elétrica.              |
+| 102                          | Técnico em Informática  | Graduação em Técnico em informática.           |
+| ...                          | ...                     | ...                                            |
+
+**Tabela Disciplina**
 
 | ID da Disciplina (Chave Primária) | Nome da Disciplina    | Professor Responsável (Chave Estrangeira) |
 | --------------------------------- | --------------------- | ----------------------------------------- |
@@ -141,7 +149,7 @@ Com base no modelo conceitual, desenvolvemos o modelo lógico, que descreve como
 | 202                               | História do Brasil    | 002                                       |
 | ...                               | ...                   | ...                                       |
 
-**Tabela Nota:**
+**Tabela Nota**
 
 | Valor | Aluno (Chave Estrangeira) | Disciplina (Chave Estrangeira)  |
 | ----- | ------------------------- | ------------------------------- |
@@ -149,10 +157,142 @@ Com base no modelo conceitual, desenvolvemos o modelo lógico, que descreve como
 | 7.0   | 789012                    | 202                             |
 | ...   | ...                       | ...                             |
 
-**Tabela Curso:**
 
-| ID do Curso (Chave Primária) | Nome do Curso           |
-| ---------------------------- | ----------------------- |
-| 101                          | Engenharia Elétrica     |
-| 102                          | Técnico em informática  |
-| ...                          | ...                     |
+---
+
+# Modelo Físico
+
+O modelo Físico é a etapa de implementação onde se escolhe o SGBD para criar o banco de dados usamos o MySQL por ser a proposta do trabalho.
+
+
+## Tabelas
+
+Começamos pelas tabelas com o exemplo de código abaixo.
+
+```sql
+-- Tabela Aluno
+CREATE TABLE Aluno (
+    Matricula INT PRIMARY KEY,
+    Nome VARCHAR(255),
+    DataNascimento DATE,
+    DadosContato VARCHAR(255)
+);
+
+-- Tabela Funcionário
+CREATE TABLE Funcionario (
+    NumRegistro INT PRIMARY KEY,
+    Nome VARCHAR(255),
+    DataNascimento DATE,
+    Cargo VARCHAR(255),
+    DadosContato VARCHAR(255)
+);
+
+-- Tabela Professor
+CREATE TABLE Professor (
+    AreaEspecializacao VARCHAR(255),
+    FuncionarioID INT,
+    FOREIGN KEY (FuncionarioID) REFERENCES Funcionario(NumRegistro)
+);
+
+-- Tabela Curso
+CREATE TABLE Curso (
+    CursoID INT PRIMARY KEY,
+    NomeCurso VARCHAR(255),
+    Descricao TEXT
+);
+
+-- Tabela Disciplina
+CREATE TABLE Disciplina (
+    DisciplinaID INT PRIMARY KEY,
+    NomeDisciplina VARCHAR(255),
+    ProfessorResponsavel INT,
+    FOREIGN KEY (ProfessorResponsavel) REFERENCES Professor(FuncionarioID)
+);
+
+-- Tabela Nota
+CREATE TABLE Nota (
+    Valor DECIMAL(5, 2),
+    AlunoMatricula INT,
+    DisciplinaID INT,
+    FOREIGN KEY (AlunoMatricula) REFERENCES Aluno(Matricula),
+    FOREIGN KEY (DisciplinaID) REFERENCES Disciplina(DisciplinaID)
+);
+```
+
+Todo código esta [AQUI](https://github.com/itspedro/BD-institucional)
+
+Essas tabelas formam a base do sistema de gerenciamento de uma instituição acadêmica.
+
+A próxima etapa é popular essas tabelas com dados reais ou fictícios, para que o sistema possa ser utilizado e testado. Também é importante criar consultas SQL para recuperar, inserir, atualizar e excluir dados, conforme necessário para atender às operações do sistema.
+
+## Inserindo Dados
+
+Foram inseridos os dados dos [Exemplos](#exemplos) acima.
+
+**Tabela Aluno**
+
+```sql
+INSERT INTO Aluno (Matricula, Nome, DataNascimento, DadosContato)
+VALUES
+    (123456, 'Giuseppe Cadura', '1995-02-15', 'messi@email.com'),
+    (789012, 'Ballan Sarrola', '1998-05-22', 'aluno@email.com');
+```
+
+**Tabela Funcionário**
+
+```sql
+INSERT INTO Funcionario (NumRegistro, Nome, DataNascimento, Cargo, DadosContato)
+VALUES
+    (001, 'Pessoa Oliveira', '1990-10-08', 'Professor', 'pessoa@email.com'),
+    (002, 'Professor da Silva', '1985-04-20', 'Professor', 'professor@email.com');
+```
+
+**Tabela Curso**
+
+```sql
+INSERT INTO Curso (CursoID, NomeCurso, Descricao)
+VALUES
+    (101, 'Engenharia Elétrica', 'Graduação em Engenharia Elétrica.'),
+    (102, 'Técnico em Informática', 'Graduação em Técnico em Informática.');
+```
+
+**Tabela Disciplina**
+
+```sql
+INSERT INTO Disciplina (DisciplinaID, NomeDisciplina, ProfessorResponsavel)
+VALUES
+    (201, 'Cálculo I', 001),
+    (202, 'História do Brasil', 002);
+```
+
+**Tabela Nota**
+
+```sql
+INSERT INTO Nota (Valor, AlunoMatricula, DisciplinaID)
+VALUES
+    (8.5, 123456, 201),
+    (7.0, 789012, 202);
+```
+
+## Criando Views
+
+A partir de algumas consultas, criamos as **views** para facilitar a busca de dados específicos.
+
+Criamos uma view para ver todos os Professores e suas disciplinas.
+
+```sql
+CREATE VIEW ProfessoresDisciplinas AS
+SELECT Professor.AreaEspecializacao, Professor.Nome AS NomeProfessor, Disciplina.Nome AS NomeDisciplina
+FROM Professor
+INNER JOIN Disciplina ON Professor.FuncionarioID = Disciplina.ProfessorResponsavel;
+```
+
+Uma view para ver todos os Alunos e seus cursos.
+
+```sql
+CREATE VIEW AlunosCursos AS
+SELECT Aluno.Nome AS NomeAluno, Curso.NomeCurso
+FROM Aluno
+INNER JOIN CursoAluno ON Aluno.Matricula = CursoAluno.Matricula
+INNER JOIN Curso ON CursoAluno.CursoID = Curso.CursoID;
+```
