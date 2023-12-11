@@ -92,6 +92,7 @@ Com base no modelo conceitual, desenvolvemos o modelo lógico, que descreve como
 - ID da Disciplina (Chave Primária)
 - Nome da Disciplina
 - Professor Responsável (Chave Estrangeira de Professor)
+- Curso (Chave Estrangeira de Curso)
 
 **Tabela Nota**
 - Valor
@@ -101,6 +102,7 @@ Com base no modelo conceitual, desenvolvemos o modelo lógico, que descreve como
 **Tabela Curso**
 - ID do Curso (Chave Primária)
 - Nome do Curso
+- Descrição
 
 **Tabela Turma**
 - ID da Turma (Chave Primária)
@@ -113,49 +115,57 @@ Com base no modelo conceitual, desenvolvemos o modelo lógico, que descreve como
 
 | Matrícula (Chave Primária) | Nome              | Nasc.              | Dados de Contato   |
 | -------------------------- | ----------------- | ------------------ | ------------------ |
-| 123456                     | Giuseppe Cadura   | 1995-02-15         | messi@email.com    |
-| 789012                     | Ballan Sarrola    | 1998-05-22         | aluno@email.com    |
+| 123456                     | Giuseppe Cadura   | 1995-02-15         | giuseppe@email.com |
+| 789012                     | Ballan Sarrola    | 1998-05-22         | ballan@email.com   |
 | ...                        | ...               | ...                | ...                |
 
 **Tabela Funcionário**
 
 | Registro (Chave Primária) | Nome               | Nasc.              | Cargo           | Dados de Contato    |
 | ------------------------- | ------------------ | ------------------ | --------------- | ------------------- |
-| 001                       | Pessoa Oliveira    | 1990-10-08         | Professor       | pessoa@email.com    |
-| 002                       | Professor da Silva | 1985-04-20         | Professor       | professor@email.com |
+| 789123                    | Antonio Oliveira   | 1990-10-08         | Professor       | antonio@email.com   |
+| 123789                    | Maria da Silva     | 1985-04-20         | Professor       | maria@email.com     |
 | ...                       | ...                | ...                | ...             | ...                 |
 
 **Tabela Professor**
 
-| Área de Especialização | Funcionário (Chave Estrangeira) |
-| ---------------------- | ------------------------------- |
-| Matemática             | 002                             |
-| História               | 001                             |
-| ...                    | ...                             |
+| Professor (Chave Primária) | Área de Especialização | Funcionário (Chave Estrangeira) |
+| -------------------------- | ---------------------- | ------------------------------- |
+| 678101                     | Matemática             | 789123                          |
+| 456123                     | História               | 123789                          |
+| ...                        | ...                    | ...                             |
 
 **Tabela Curso**
 
 | ID do Curso (Chave Primária) | Nome do Curso           | Descrição                                      |
 | ---------------------------- | ----------------------- | ---------------------------------------------- |
-| 101                          | Engenharia Elétrica     | Graduação em Engenharia Elétrica.              |
-| 102                          | Técnico em Informática  | Graduação em Técnico em informática.           |
+| 321654                       | Ciencias Contábeis      | Graduação em Ciencias Contábeis.               |
+| 987123                       | Engenharia de Software  | Graduação em Engenharia de Software.           |
 | ...                          | ...                     | ...                                            |
 
 **Tabela Disciplina**
 
-| ID da Disciplina (Chave Primária) | Nome da Disciplina    | Professor Responsável (Chave Estrangeira) |
-| --------------------------------- | --------------------- | ----------------------------------------- |
-| 201                               | Cálculo I             | 001                                       |
-| 202                               | História do Brasil    | 002                                       |
-| ...                               | ...                   | ...                                       |
+| ID da Disciplina (Chave Primária) | Nome da Disciplina           | Professor Responsável (Chave Estrangeira) | Curso (Chave Estrangeira) |
+| --------------------------------- | ---------------------------- | ----------------------------------------- |-------------------------- |
+| 101101                            | Cálculo I                    | 678101                                    | 321654                    |
+| 202202                            | Linguagens de Programação    | 456123                                    | 987123                    |
+| ...                               | ...                          | ...                                       | ...                       |
 
 **Tabela Nota**
 
 | Valor | Aluno (Chave Estrangeira) | Disciplina (Chave Estrangeira)  |
 | ----- | ------------------------- | ------------------------------- |
-| 8.5   | 123456                    | 201                             |
-| 7.0   | 789012                    | 202                             |
+| 8.5   | 123456                    | 101101                          |
+| 7.0   | 789012                    | 202202                          |
 | ...   | ...                       | ...                             |
+
+**Tabela Turma**
+
+| Turma (Chave Primária) | Curso (Chave Estrangeira) | Disciplina (Chave Estrangeira)  |
+| ---------------------- | ------------------------- | ------------------------------- |
+| 001                    | 321654                    | 101101                          |
+| 002                    | 987123                    | 202202                          |
+| ...                    | ...                       | ...                             |
 
 
 ---
@@ -189,6 +199,7 @@ CREATE TABLE Funcionario (
 
 -- Tabela Professor
 CREATE TABLE Professor (
+    ProfessorID INT PRIMARY KEY,
     AreaEspecializacao VARCHAR(255),
     FuncionarioID INT,
     FOREIGN KEY (FuncionarioID) REFERENCES Funcionario(NumRegistro)
@@ -206,7 +217,9 @@ CREATE TABLE Disciplina (
     DisciplinaID INT PRIMARY KEY,
     NomeDisciplina VARCHAR(255),
     ProfessorResponsavel INT,
-    FOREIGN KEY (ProfessorResponsavel) REFERENCES Professor(FuncionarioID)
+    CursoID INT, -- Added foreign key to link Disciplina with Curso
+    FOREIGN KEY (ProfessorResponsavel) REFERENCES Professor(ProfessorID),
+    FOREIGN KEY (CursoID) REFERENCES Curso(CursoID)
 );
 
 -- Tabela Nota
@@ -215,6 +228,15 @@ CREATE TABLE Nota (
     AlunoMatricula INT,
     DisciplinaID INT,
     FOREIGN KEY (AlunoMatricula) REFERENCES Aluno(Matricula),
+    FOREIGN KEY (DisciplinaID) REFERENCES Disciplina(DisciplinaID)
+);
+
+-- Tabela Turma
+CREATE TABLE Turma (
+    TurmaID INT PRIMARY KEY,
+    CursoID INT,
+    DisciplinaID INT,
+    FOREIGN KEY (CursoID) REFERENCES Curso(CursoID),
     FOREIGN KEY (DisciplinaID) REFERENCES Disciplina(DisciplinaID)
 );
 ```
@@ -234,8 +256,8 @@ Foram inseridos os dados dos [Exemplos](#exemplos) acima.
 ```sql
 INSERT INTO Aluno (Matricula, Nome, DataNascimento, DadosContato)
 VALUES
-    (123456, 'Giuseppe Cadura', '1995-02-15', 'messi@email.com'),
-    (789012, 'Ballan Sarrola', '1998-05-22', 'aluno@email.com');
+    (123456, 'Giuseppe Cadura', '1995-02-15', 'giuseppe@email.com'),
+    (789012, 'Ballan Sarrola', '1998-05-22', 'ballan@email.com');
 ```
 
 **Tabela Funcionário**
@@ -243,8 +265,17 @@ VALUES
 ```sql
 INSERT INTO Funcionario (NumRegistro, Nome, DataNascimento, Cargo, DadosContato)
 VALUES
-    (001, 'Pessoa Oliveira', '1990-10-08', 'Professor', 'pessoa@email.com'),
-    (002, 'Professor da Silva', '1985-04-20', 'Professor', 'professor@email.com');
+    (789123, 'Antonio Oliveira', '1990-10-08', 'Professor', 'antonio@email.com'),
+    (123789, 'Maria da Silva', '1985-04-20', 'Professor', 'maria@email.com');
+```
+
+**Tabela Professor**
+
+```sql
+INSERT INTO Professor (ProfessorID, AreaEspecializacao, FuncionarioID)
+VALUES
+    (678101, 'Matemática', 789123),
+    (456123, 'Programação', 123789);
 ```
 
 **Tabela Curso**
@@ -252,17 +283,17 @@ VALUES
 ```sql
 INSERT INTO Curso (CursoID, NomeCurso, Descricao)
 VALUES
-    (101, 'Engenharia Elétrica', 'Graduação em Engenharia Elétrica.'),
-    (102, 'Técnico em Informática', 'Graduação em Técnico em Informática.');
+    (321654, 'Ciencias Contábeis', 'Graduação em Ciencias Contábeis.'),
+    (987123, 'Engenharia de Software', 'Graduação em Engenharia de Software.');
 ```
 
 **Tabela Disciplina**
 
 ```sql
-INSERT INTO Disciplina (DisciplinaID, NomeDisciplina, ProfessorResponsavel)
+INSERT INTO Disciplina (DisciplinaID, NomeDisciplina, ProfessorResponsavel, CursoID)
 VALUES
-    (201, 'Cálculo I', 001),
-    (202, 'História do Brasil', 002);
+    (101101, 'Cálculo I', 678101, 321654),
+    (202202, 'Linguagens de Programação', 456123, 987123);
 ```
 
 **Tabela Nota**
@@ -270,29 +301,63 @@ VALUES
 ```sql
 INSERT INTO Nota (Valor, AlunoMatricula, DisciplinaID)
 VALUES
-    (8.5, 123456, 201),
-    (7.0, 789012, 202);
+    (8.5, 123456, 101101),
+    (7.0, 789012, 202202);
+```
+
+**Tabela Turma**
+
+```sql
+INSERT INTO Turma (TurmaID, CursoID, DisciplinaID)
+VALUES
+    (001, 321654, 101101),
+    (002, 987123, 202202),
 ```
 
 ## Criando Views
 
 A partir de algumas consultas, criamos as **views** para facilitar a busca de dados específicos.
 
-Criamos uma view para ver todos os Professores e suas disciplinas.
+Criamos uma view para ver todos os Professores e suas Disciplinas.
 
 ```sql
-CREATE VIEW ProfessoresDisciplinas AS
-SELECT Professor.AreaEspecializacao, Professor.Nome AS NomeProfessor, Disciplina.Nome AS NomeDisciplina
-FROM Professor
-INNER JOIN Disciplina ON Professor.FuncionarioID = Disciplina.ProfessorResponsavel;
-```
+CREATE VIEW professores_disciplinas AS
+SELECT
+    P.ProfessorID,
+    P.AreaEspecializacao,
+    F.Nome AS Nome,
+    F.DataNascimento AS DataNascimento,
+    F.DadosContato AS Contato,
+    D.DisciplinaID,
+    D.NomeDisciplina
+FROM
+    Professor P
+JOIN
+    Funcionario F ON P.FuncionarioID = F.NumRegistro
+JOIN
+    Disciplina D ON P.ProfessorID = D.ProfessorResponsavel;
 
-Uma view para ver todos os Alunos e seus cursos.
-
-```sql
 CREATE VIEW AlunosCursos AS
 SELECT Aluno.Nome AS NomeAluno, Curso.NomeCurso
 FROM Aluno
 INNER JOIN CursoAluno ON Aluno.Matricula = CursoAluno.Matricula
 INNER JOIN Curso ON CursoAluno.CursoID = Curso.CursoID;
+```
+
+Uma view para ver todos os Alunos Notas e Disciplina.
+
+```sql
+CREATE VIEW notas_alunos_disciplinas AS
+SELECT
+    A.Matricula,
+    A.Nome AS NomeAluno,
+    D.DisciplinaID,
+    D.NomeDisciplina,
+    N.Valor AS Nota
+FROM
+    Aluno A
+JOIN
+    Nota N ON A.Matricula = N.AlunoMatricula
+JOIN
+    Disciplina D ON N.DisciplinaID = D.DisciplinaID;
 ```
