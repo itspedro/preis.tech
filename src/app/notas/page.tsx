@@ -5,7 +5,7 @@ import { getSortedPosts } from '@/lib/posts';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: `Blog Pessoal`,
+  title: `Notas`,
   description: `Desenvolvimento web e aprendizados.`,
   twitter: {
     card: 'summary_large_image',
