@@ -34,8 +34,8 @@ const NavItem = styled(Link)`
 function HeaderItems() {
   return (
     <NavList>
-      <NavItem href="/blog">
-        Blog
+      <NavItem href="/notas">
+        Notas
       </NavItem>
       <NavItem href="/#projetos">
         Projetos

@@ -78,6 +78,9 @@ const Copy = styled.span`
 
 
 function Footer() {
+
+  const currentYear = new Date().getFullYear();
+
   return (
     <FooterRoot>
       <FooterContent>
@@ -98,8 +101,8 @@ function Footer() {
               },
               { 
                 id: 3,
-                name: "Blog",
-                url: "/blog",
+                name: "Notas",
+                url: "/notas",
               }
             ]}
             />
@@ -127,7 +130,7 @@ function Footer() {
         </FooterCols>
       </FooterContent>
       <FooterCopy>
-        © 2023 Pedro Reis.
+        © {currentYear} Pedro Reis.
         <Copy><CodeIcon /></Copy>
       </FooterCopy>
     </FooterRoot>
