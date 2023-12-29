@@ -1,7 +1,9 @@
 import { styled } from 'styled-components';
 import { GithubIcon } from '@/components/icons/github-icon';
-import Link from 'next/link';
 import { LinkedinIcon } from '@/components/icons/linkedin-icon';
+import { BlueSkyIcon } from '@/components/icons/bluesky-icon';
+import { InstagramIcon } from '@/components/icons/instagram-icon';
+import Link from 'next/link';
 
 const Icons = styled.div`
   display: flex;
@@ -34,6 +36,18 @@ function FooterIcons() {
       <Link aria-label="Linkedin" href="https://www.linkedin.com/in/itspedro" target="_blank">
         <Icon>
           <LinkedinIcon/>
+        </Icon>
+      </Link>
+
+      <Link aria-label="BlueSky" href="https://www.bsky.app/profile/pedro.social" target="_blank">
+        <Icon>
+          <BlueSkyIcon />
+        </Icon>
+      </Link>
+
+      <Link aria-label="Instagram" href="https://www.instagram.com/opedrosr" target="_blank">
+        <Icon>
+          <InstagramIcon />
         </Icon>
       </Link>
       

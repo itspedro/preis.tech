@@ -12,9 +12,6 @@ import { h, s } from 'hastscript'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   compiler: {
     styledComponents: true
   },
@@ -47,6 +44,7 @@ const withMDX = nextMDX({
       rehypeHighlight,
       rehypeSlug,
       [rehypeTOC, {
+        headings: ["h1"],
         customizeTOC: (toc) => {
           toc.children.unshift(
             h('div', 

@@ -152,8 +152,6 @@ function CardComponent({ props }: CardProps) {
           height={164}
           layout="responsive"
           objectFit="cover"
-          quality={100}
-          
         />
       </ImageSection>
       </CardContent>

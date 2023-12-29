@@ -2,9 +2,9 @@
 
 import Footer from '@/components/Footer/footer';
 import Header from '@/components/Header/header';
-import MDXstyle from '@/components/blog/MDXstyle';
-import PostFooter from '@/components/blog/post-footer';
-import PostHeader from '@/components/blog/post-header';
+import MDXstyle from '@/components/notas/MDXstyle';
+import PostFooter from '@/components/notas/post-footer';
+import PostHeader from '@/components/notas/post-header';
 import { TPostFrontMatter } from '@/types/types';
 import styled from 'styled-components';
 
