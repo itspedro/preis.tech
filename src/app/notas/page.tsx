@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: `Desenvolvimento web e aprendizados.`,
   twitter: {
     card: 'summary_large_image',
-    title: 'Pedro Reis · Blog Pessoal',
+    title: 'Pedro Reis · Notas',
     description: 'Site pessoal de Pedro Reis.',
   }
 };

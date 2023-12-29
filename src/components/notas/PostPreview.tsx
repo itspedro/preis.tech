@@ -58,7 +58,7 @@ interface PostPreviewProps {
 
 function PostPreview({ frontMatter, slug }: PostPreviewProps) {
   return (
-    <CardContainer href={`/blog/${slug}`}>
+    <CardContainer href={`/notas/${slug}`}>
       <Description>{formatTime(frontMatter.date)} - {relativeTime(frontMatter.date)}</Description>
       <Title>{frontMatter.title}</Title>
       <Description>{frontMatter.description}</Description>

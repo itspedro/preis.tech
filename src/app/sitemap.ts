@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const postsSitemap = posts.map((slug) => {
     return {
-      url: `${process.env.URL}/blog/${slug}`,
+      url: `${process.env.URL}/notas/${slug}`,
       lastModified: new Date(),
     };
   });
@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: `${process.env.URL}/blog`,
+      url: `${process.env.URL}/notas`,
       lastModified: new Date(),
     },
     {

@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PageTitle from '../../../components/page-title';
 import { TPostFrontMatter } from '@/types/types';
-import PostPreview from '@/components/blog/PostPreview';
+import PostPreview from '@/components/notas/PostPreview';
 
 const Root = styled.div.attrs({ className: 'bg-image' })`
   display: flex;
@@ -41,8 +41,8 @@ function PreviewSection({ posts }: PreviewProps) {
   return (
     <Root>
       <PageTitle
-        title='Blog Pessoal'
-        description='Aqui estão todos os artigos relacionados à projetos pessoais.'
+        title='Notas'
+        description='Artigos relacionados à projetos pessoais.'
       />
       <CardContainer>
         {posts.map((post) => (
