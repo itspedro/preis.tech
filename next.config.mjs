@@ -12,9 +12,6 @@ import { h, s } from 'hastscript'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   compiler: {
     styledComponents: true
   },
