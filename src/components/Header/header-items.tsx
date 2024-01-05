@@ -35,7 +35,7 @@ function HeaderItems() {
   return (
     <NavList>
       <NavItem href="/notas">
-        Notas
+        Anotações
       </NavItem>
       <NavItem href="/#projetos">
         Projetos

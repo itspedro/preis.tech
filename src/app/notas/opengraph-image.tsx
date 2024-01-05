@@ -8,7 +8,7 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image() {
-  return await fetch(`${process.env.URL}/api/og-page?title=Notas&description=Pedro Reis`, {
+  return await fetch(`${process.env.URL}/api/og-page?title=Anotações&description=Pedro Reis`, {
     method: 'GET'
   });
 };

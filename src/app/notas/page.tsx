@@ -5,11 +5,11 @@ import { getSortedPosts } from '@/lib/posts';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: `Notas`,
+  title: `Anotações`,
   description: `Desenvolvimento web e aprendizados.`,
   twitter: {
     card: 'summary_large_image',
-    title: 'Pedro Reis · Notas',
+    title: 'Pedro Reis · Anotações',
     description: 'Site pessoal de Pedro Reis.',
   }
 };

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CurriculoButton from './main-CV-button';
+// import CurriculoButton from './main-CV-button';
 import TalkButton from './main-Talk-button';
 import { motion } from 'framer-motion';
 
@@ -14,7 +14,6 @@ function MainButtons() {
       animate="show"
     >
       <TalkButton />
-      <CurriculoButton />
     </Root>
   );
 };

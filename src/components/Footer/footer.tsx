@@ -101,7 +101,7 @@ function Footer() {
               },
               { 
                 id: 3,
-                name: "Notas",
+                name: "Anotações",
                 url: "/notas",
               }
             ]}
@@ -109,11 +109,11 @@ function Footer() {
             <FooterCol 
             title="Links úteis"
             links={[
-              { 
-                id: 4,
-                name: "Currículo",
-                url: "https://to.preis.tech/cv"
-              },
+              // { 
+              //   id: 4,
+              //   name: "Currículo",
+              //   url: "https://to.preis.tech/cv"
+              // },
               {
                 id: 5,
                 name: "Código Fonte",
