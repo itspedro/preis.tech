@@ -41,7 +41,7 @@ function PreviewSection({ posts }: PreviewProps) {
   return (
     <Root>
       <PageTitle
-        title='Notas'
+        title='Anotações'
         description='Artigos relacionados à projetos pessoais.'
       />
       <CardContainer>

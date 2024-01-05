@@ -101,7 +101,7 @@ function Footer() {
               },
               { 
                 id: 3,
-                name: "Notas",
+                name: "Anotações",
                 url: "/notas",
               }
             ]}
