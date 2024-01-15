@@ -60,12 +60,18 @@ const FooterCopy = styled.div`
   height: 40px;
   align-items: center;
   color:  rgba(196, 196, 196, 0.80);
-  font-size: 10px;
+  font-size: 12px;
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 0.7px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: rgba(196, 196, 196, 0.80);
+  }
 
   @media (max-width: 1400px) {
     width: 80%;
@@ -103,6 +109,7 @@ function Footer() {
                 id: 3,
                 name: "Anotações",
                 url: "/notas",
+                $new: true,
               }
             ]}
             />
@@ -114,16 +121,15 @@ function Footer() {
               //   name: "Currículo",
               //   url: "https://to.preis.tech/cv"
               // },
-              {
-                id: 5,
-                name: "Código Fonte",
-                url: "https://github.com/itsPedro/preis.tech",
-              },
+              // {
+              //   id: 5,
+              //   name: "Código Fonte",
+              //   url: "https://github.com/itsPedro/preis.tech",
+              // },
               { 
                 id: 6,
                 name: "Mais Projetos",
                 url: "https://github.com/itsPedro?tab=repositories",
-                $new: true
               }
             ]}
             />

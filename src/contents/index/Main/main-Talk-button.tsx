@@ -12,14 +12,14 @@ const Button = styled(Link)`
   align-items: center;
   justify-content: center;
   color: #FFF;
-  font-size: 14px;
+  font-size: 16px;
   font-family: inherit;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   border: none;
-  width: 145px;
-  height: 42px;
+  width: 200px;
+  height: 50px;
   border-radius: 8px;
   background: ${props => props.theme.tertiary};
   cursor: pointer;

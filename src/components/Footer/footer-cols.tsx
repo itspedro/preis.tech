@@ -56,7 +56,7 @@ const FooterColItem = styled.div<{
 
 const FooterColTitle = styled.span`
   color: ${(props) => props.theme.text80};
-  font-size: 13px;
+  font-size: 16px;
   font-family: inherit;
   font-style: normal;
   font-weight: 700;

@@ -9,14 +9,20 @@ const Icons = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
-  gap: 10px;
+  gap: 20px;
   margin-top: 20px;
   width: 100%;
 `
 
 const Icon = styled.span`
   color: ${props => props.theme.text80};
-  font-size: 12px;
+  height: 35px;
+  width: 40px;
+
+  svg {
+    width: 25px;
+    height: 25px;
+  };
 
   &:hover {
     color: ${props => props.theme.icons};
@@ -36,12 +42,6 @@ function FooterIcons() {
       <Link aria-label="Linkedin" href="https://www.linkedin.com/in/itspedro" target="_blank">
         <Icon>
           <LinkedinIcon/>
-        </Icon>
-      </Link>
-
-      <Link aria-label="BlueSky" href="https://www.bsky.app/profile/pedro.social" target="_blank">
-        <Icon>
-          <BlueSkyIcon />
         </Icon>
       </Link>
 

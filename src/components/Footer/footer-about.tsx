@@ -4,7 +4,7 @@ import FooterIcons from './footer-icons';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  max-width:  240px;
+  max-width:  300px;
   width: 100%;
   gap: 8px;
 
@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const Title = styled.span`
   color: ${props => props.theme.text80};
-  font-size: 13px;
+  font-size: 16px;
   font-family: inherit;
   font-style: normal;
   font-weight: 700;
