@@ -11,7 +11,7 @@ export const contentType = 'image/png';
 
 export default async function Image({ params }: { params: { slug: string } }) {
 
-  const post = getPostFrontMatter(params.slug);
+  const post = await getPostFrontMatter(params.slug);
 
   return await fetch(`${process.env.URL}/api/og-post?title=${post.title}&tags=${post.tags}&date=${post.date}`, {
     method: 'GET'

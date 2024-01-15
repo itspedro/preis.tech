@@ -75,7 +75,7 @@ export function NotFoundBlogContents() {
       <Content>
         Este post não existe ou foi removido.
       </Content>
-      <TextAnchor href="/blog">
+      <TextAnchor href="/notas">
         Todos os posts
       </TextAnchor>
     </Container>
