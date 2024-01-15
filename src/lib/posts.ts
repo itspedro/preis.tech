@@ -1,8 +1,9 @@
-
 import frontMatter from 'front-matter';
 import type { TPostFrontMatter } from '@/types/types';
 import { notFound } from 'next/navigation'
 import { fetcher } from './fetcher';
+import { serialize } from 'next-mdx-remote/serialize'
+import { mdxOptions } from '../../mdx-options';
 
 export async function getPostSlugs() {
 
@@ -15,7 +16,7 @@ export async function getPostSlugs() {
 
 };
 
-async function getFileFromURL(url: string): Promise<string> {
+export async function getFileFromURL(url: string): Promise<string> {
   try {
     const res = await fetch(url);
     const fileContent = await res.text();
@@ -25,12 +26,28 @@ async function getFileFromURL(url: string): Promise<string> {
   }
 }
 
+export async function getMDXcontent(slug: string): Promise<any> {
+
+  const noteData: any = await fetcher(slug).then((data =>  data as any));
+  const fullPath: any = noteData.download_url;
+
+  const fileContent = await getFileFromURL(fullPath);  
+
+  const { body } = await frontMatter(fileContent);
+
+  const res = await serialize(body, {
+    mdxOptions: mdxOptions as any,
+  })
+
+  return res;
+}
+
 export async function getPostFrontMatter(slug: string): Promise<TPostFrontMatter> {
 
   const noteData: any = await fetcher(slug).then((data =>  data as any));
   const fullPath: any = noteData.download_url;
 
-  const fileContent = await getFileFromURL(fullPath);
+  const fileContent = await getFileFromURL(fullPath);  
 
   const { attributes } = frontMatter<TPostFrontMatter>(fileContent);
 
@@ -68,3 +85,8 @@ export async function getSortedPosts(): Promise<Array<SortedPostsType>> {
     );
   });
 };
+
+
+export function getPostPathImport(slug: string): string {
+  return `https://raw.githubusercontent.com/itspedro-lab/Notes/main/${slug}.mdx`;
+}

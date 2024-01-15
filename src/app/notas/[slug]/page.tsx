@@ -1,4 +1,4 @@
-import { getPostFrontMatter } from '@/lib/posts';
+import { getMDXcontent, getPostFrontMatter } from '@/lib/posts';
 import 'highlight.js/styles/base16/monokai.css';
 import type { Metadata } from 'next';
 import PostContent from '@/contents/blog/post/post';
@@ -26,16 +26,16 @@ export async function generateMetadata(
   };
 };
 
-
 async function BlogPost({ params }: BlogPostProps) {
 
   const slug = params.slug;
   const post = await getPostFrontMatter(slug);
+  const content = await getMDXcontent(slug);
 
   return (
     <PostContent 
       post={post}
-      slug={slug}
+      content={content}
     />
   );
 };

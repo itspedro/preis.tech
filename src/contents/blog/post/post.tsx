@@ -14,10 +14,10 @@ const Container = styled.div`
 
 interface PostProps {
   post: TPostFrontMatter,
-  slug: string
+  content: any;
 };
 
-function PostContent({ post, slug }: PostProps) {
+function PostContent({ post, content }: PostProps) {
   return (
     <>
       <Header />
@@ -28,7 +28,7 @@ function PostContent({ post, slug }: PostProps) {
           date={post.date}
           lang={post.lang}
         />
-        <MDXstyle slug={slug} />
+        <MDXstyle source={content}/>
         <PostFooter 
           tags={post.tags}
         />
