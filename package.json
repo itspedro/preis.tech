@@ -31,7 +31,6 @@
     "eslint-config-next": "13.4.5",
     "framer-motion": "^10.16.2",
     "front-matter": "^4.0.2",
-    "gray-matter": "^4.0.3",
     "hastscript": "^7.2.0",
     "highlight.js": "^11.8.0",
     "mini-svg-data-uri": "^1.4.4",

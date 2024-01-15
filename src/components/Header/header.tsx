@@ -18,6 +18,7 @@ const TagHeader = styled.div<{ $isScrolling: boolean }>`
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05);
   background-color: transparent;
   transition: all 0.2s ease-in-out;
+  background-color: ${props => addOpacity(props.theme.secondary, 0.6)};
 
   ${props => props.$isScrolling ?
   `
@@ -25,10 +26,13 @@ const TagHeader = styled.div<{ $isScrolling: boolean }>`
     margin: 2% 5%;
     background-color: ${addOpacity(props.theme.secondary, 0.8)};
     backdrop-filter: blur(10px);
+    @media (max-width: 768px) {
+      margin: 2% 2%;
+    };
   ` : ''};
 
   @media (max-width: 768px) {
-    margin: 2% 2%;
+    padding: 2% 2%;
   };
 `
 

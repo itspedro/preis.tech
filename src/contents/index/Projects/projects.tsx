@@ -17,14 +17,16 @@ const Root = styled.div`
   padding: 200px 0;
 
   @media (max-width: 962px) {
-    width: 90%;
+    width: 80%;
+    margin: auto;
   };
 `
 
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
+  margin: 0 auto;
 
   @media (max-width: 1340px) {
     grid-template-columns: repeat(2, 1fr);

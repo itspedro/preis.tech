@@ -17,7 +17,7 @@ const ToolBoxContent = styled.div`
 `
 
 const ToolBoxText = styled(motion.p)`
-  font-size: 14px;
+  font-size: 15px;
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
@@ -37,8 +37,13 @@ const ToolBoxIcon = styled(motion.li)<{color: string}>`
   color: ${props => props.theme.text70};
   transition: 0.3s;
   scale: 1;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 35px;
+
+  svg {
+    width: 25px;
+    height: 25px;
+  };
 
   &:hover {
     color: ${props => props.color};

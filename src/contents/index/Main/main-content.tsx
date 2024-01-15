@@ -8,7 +8,7 @@ import { motion, useAnimationControls } from 'framer-motion';
 const ContentRoot = styled.div`
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 600px;
   gap: 36px;
   margin-left: 10%;
   position: relative;
@@ -16,6 +16,7 @@ const ContentRoot = styled.div`
   @media (min-width: 768px) {
     gap: 48px;
     margin-left: 0;
+    width: 400px;
   }
 `
 
@@ -24,7 +25,7 @@ const TitleSec = styled.div`
 `
 
 const Title = styled(motion.span)`
-  font-size: 39px;
+  font-size: 40px;
   color: ${props => props.theme.textBold};
   font-family: inherit;
   font-style: normal;
@@ -42,7 +43,7 @@ const Name = styled.strong`
 
 const Text = styled(motion.p)`
   color: ${props => props.theme.text};
-  font-size: 14px;
+  font-size: 16px;
   font-family: inherit;
   font-style: normal;
   font-weight: 400;
@@ -54,7 +55,7 @@ const Text = styled(motion.p)`
 `
 
 const SubTitle = styled(motion.span)`
-  font-size: 38px;
+  font-size: 40px;
   color: ${props => props.theme.text70};
   font-family: inherit;
   font-style: thin;

@@ -1,11 +1,11 @@
 import { getPostSlugs } from '@/lib/posts';
 import { MetadataRoute } from 'next';
  
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
-  const posts = getPostSlugs();
+  const posts = await getPostSlugs();
 
-  const postsSitemap = posts.map((slug) => {
+  const postsSitemap = posts.map((slug: string) => {
     return {
       url: `${process.env.URL}/notas/${slug}`,
       lastModified: new Date(),
