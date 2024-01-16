@@ -21,11 +21,21 @@ const MainRoot = styled.div.attrs({ className: 'bg-image' })`
   };
 `;
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+`;
+
 function MainHome() {
   return (
     <MainRoot>
-      <MainContent />
-      <MainCharacters />
+      <Container>
+        <MainContent />
+        <MainCharacters />
+      </Container>
     </MainRoot>
   );
 };
