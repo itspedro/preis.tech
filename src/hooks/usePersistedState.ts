@@ -1,35 +1,25 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react';
 
-function usePersistedState(key: string, initialState: any) {
-  if (typeof window === 'undefined') {
-    throw new Error('usePersistedState must be used on the client side.');
-  }
-  const isClient = typeof window !== 'undefined';
-
-  const [state, setState] = useState(() => {
-    if (isClient) {
-      const storageValue = localStorage.getItem(key);
-      if (storageValue) {
-        const storageObj = JSON.parse(storageValue);
-        const storageKeys = Object.keys(storageObj.colors).sort();
-        const initialKeys = Object.keys(initialState.colors).sort();
-        if (JSON.stringify(storageKeys) !== JSON.stringify(initialKeys)) {
-          localStorage.removeItem(key);
-          return initialState;
-        }
-        return JSON.parse(storageValue);
-      }
-    }
-    return initialState;
-  });
+function usePersistedState<T>(key: string, initialState: T) {
+  const [state, setState] = useState<T>(initialState);
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(state));
-  }, [key, state]);
+    if (typeof window === 'undefined') return;
+    let storageValue = localStorage.getItem(key);
+    if (storageValue) setState(JSON.parse(storageValue));
+  }, [key]);
 
-  return [state, setState];
+  const updateLocalStorage = (state: T) => {
+    setState(state);
+    localStorage.setItem(key,JSON.stringify(state));
+  }
+
+  return {
+    state,
+    updateLocalStorage
+  };
 }
 
 export default usePersistedState;
