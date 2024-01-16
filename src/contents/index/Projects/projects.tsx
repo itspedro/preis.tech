@@ -28,10 +28,10 @@ const CardContainer = styled.div`
   gap: 30px;
   margin: 0 auto;
 
-  @media (max-width: 1340px) {
+  @media (max-width: 1500px) {
     grid-template-columns: repeat(2, 1fr);
   };
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     grid-template-columns: repeat(1, 1fr);
   };
 `

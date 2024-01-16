@@ -14,7 +14,7 @@ const TagHeader = styled.div<{ $isScrolling: boolean }>`
   padding: 14px;
 
   height: 65px;
-  width:60%;
+  width: 60%;
   margin: 1% auto;
 
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05);
@@ -28,9 +28,11 @@ const TagHeader = styled.div<{ $isScrolling: boolean }>`
     background-color: ${addOpacity(props.theme.secondary, 0.8)};
     backdrop-filter: blur(10px);
   ` : ''};
-
+  @media (max-width: 1500px) {
+    width: 80%;
+  };
   @media (max-width: 768px) {
-    padding: 2% 2%;
+    width: 97%;
   };
 `
 

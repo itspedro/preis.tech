@@ -19,15 +19,15 @@ interface ThemeProviderWrapperProps {
 
 export function ThemeProviderWrapper({ children }: ThemeProviderWrapperProps) {
 
-  const [theme, setTheme] = usePersistedState('theme', darkTheme);
+  const {state, updateLocalStorage} = usePersistedState('theme', darkTheme);
 
   function toggleTheme() {
-    setTheme(theme.title === 'light' ? darkTheme : lightTheme);
+    updateLocalStorage(state.title === 'light' ? darkTheme : lightTheme);
   };
 
   return (
-    <ThemeProvider theme={theme.colors}>
-      <ThemeContext.Provider value={{ themeTitle: theme.title, toggleTheme }}>
+    <ThemeProvider theme={state.colors}>
+      <ThemeContext.Provider value={{ themeTitle: state.title, toggleTheme }}>
         {children}
         <GlobalStyles />
       </ThemeContext.Provider>
