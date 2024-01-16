@@ -14,6 +14,8 @@ const TagHeader = styled.div<{ $isScrolling: boolean }>`
   padding: 14px;
 
   height: 65px;
+  width: 60%;
+  margin: 1% auto;
 
   box-shadow: 4px 4px 30px rgba(0, 0, 0, 0.05);
   background-color: transparent;
@@ -23,16 +25,14 @@ const TagHeader = styled.div<{ $isScrolling: boolean }>`
   ${props => props.$isScrolling ?
   `
     border-radius: 16px;
-    margin: 2% 5%;
     background-color: ${addOpacity(props.theme.secondary, 0.8)};
     backdrop-filter: blur(10px);
-    @media (max-width: 768px) {
-      margin: 2% 2%;
-    };
   ` : ''};
-
+  @media (max-width: 1500px) {
+    width: 80%;
+  };
   @media (max-width: 768px) {
-    padding: 2% 2%;
+    width: 97%;
   };
 `
 
@@ -70,17 +70,6 @@ const Logo = styled(Link)`
   
 const LogoDetail = styled.span`
   color: ${props => props.theme.primary};
-
-  span {
-      display: none;
-  };
-
-  &:hover {
-    span {
-      display: inline-flex;
-      transition: all 0.2s ease-in-out;
-    };
-  };
 `
 
 
@@ -95,10 +84,10 @@ function Header(){
       <TagHeader $isScrolling={isScrolling}>
         <LeftHeader>
           <Logo href="/">
-            {left}<LogoDetail>P<span>edro</span></LogoDetail>/{right}
+            {left}<LogoDetail>P</LogoDetail>/{right}
           </Logo>
-          <HeaderItems />
         </LeftHeader>
+          <HeaderItems />
         <RightHeader>
           <HeaderControl />
         </RightHeader>

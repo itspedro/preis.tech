@@ -10,7 +10,14 @@ const NavList = styled.nav`
   &:not(:hover)>a {
     opacity: 1;
     scale: 1;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
   };
+  
+  background-color: ${props => props.theme.secondary};
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  
 
   @media (max-width: 768px) {
     gap: 10px;
