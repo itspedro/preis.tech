@@ -1,7 +1,7 @@
 import { TProjectFrontMatter } from '@/types/types';
 import styled from 'styled-components';
 import { addOpacity } from '@/utils/misc';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { ExternalLinkIcon } from "../icons/external-link-icon";
 import { GithubIcon } from '../icons/github-icon';
 import Link from 'next/link';
@@ -96,9 +96,11 @@ const ImageSection = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  object-fit: cover;
+  overflow: hidden;
   max-width: 300px;
   max-height: 300px;
-  border-radius: 16px;
+  border-radius: 8px;
 
   &:hover {
     cursor: pointer;
@@ -150,8 +152,10 @@ function CardComponent({ props }: CardProps) {
           alt={props.title}
           width={300}
           height={164}
-          layout="responsive"
-          objectFit="cover"
+          style={{
+            width: "100%",
+            height: "100%"
+          }}
         />
       </ImageSection>
       </CardContent>

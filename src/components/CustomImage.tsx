@@ -1,5 +1,5 @@
 import React, { ImgHTMLAttributes } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export interface CustomImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
@@ -14,11 +14,14 @@ function CustomImage(props: CustomImageProps) {
     <Image
       src={src}
       alt={alt}
-      layout="responsive"
       width={500}
       height={500}
       priority={priority}
-    />
+      sizes="100vw"
+      style={{
+        width: "100%",
+        height: "auto"
+      }} />
   );
 };
 
