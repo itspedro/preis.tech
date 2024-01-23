@@ -1,7 +1,7 @@
 import { TProjectFrontMatter } from '@/types/types';
 import styled from 'styled-components';
 import { addOpacity } from '@/utils/misc';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { ExternalLinkIcon } from "../icons/external-link-icon";
 import { GithubIcon } from '../icons/github-icon';
 import Link from 'next/link';

@@ -127,7 +127,7 @@ function Footer() {
               //   url: "https://github.com/itsPedro/preis.tech",
               // },
               { 
-                id: 6,
+                id: 4,
                 name: "Mais Projetos",
                 url: "https://github.com/itsPedro?tab=repositories",
               }

@@ -118,8 +118,8 @@ function FooterCol(props: FooterColsProps) {
           link.$soon = link.$soon ?? false;
           link.$new = link.$new ?? false;
           return isExternalLink(link.url) ? (
-            <WrapLink>
-              <ExternalLink key={link.id} href={link.url} target='_blank' passHref>
+            <WrapLink key={link.id}>
+              <ExternalLink href={link.url} target='_blank' passHref>
                 <FooterColItem $soon={link.$soon} $new={link.$new}>
                   {link.name}
                   <ExternalLinkIcon />
@@ -130,8 +130,8 @@ function FooterCol(props: FooterColsProps) {
               ) : null}
             </WrapLink>
           ) : (
-            <WrapLink>
-              <Link key={link.id} href={!link.$soon ? link.url : ""} passHref>
+            <WrapLink key={link.id}>
+              <Link href={!link.$soon ? link.url : ""} passHref>
                 <FooterColItem $soon={link.$soon} $new={link.$new}>
                   {link.name}
                 </FooterColItem>

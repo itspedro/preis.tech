@@ -1,5 +1,5 @@
 import React, { ImgHTMLAttributes } from "react";
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 export interface CustomImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   src: string;
