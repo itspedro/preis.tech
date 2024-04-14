@@ -3,7 +3,6 @@ export async function fetcher(slug?: string): Promise<any> {
     const res = await fetch(`https://api.github.com/repos/itspedro-lab/Notes/contents/${slug ? `${slug}.mdx`: ''}`, {
       method: "GET",
       headers: {
-        Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
         "Content-Type": "application/vnd.github+json",
       },
     });
