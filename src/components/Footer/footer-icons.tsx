@@ -44,12 +44,6 @@ function FooterIcons() {
           <LinkedinIcon/>
         </Icon>
       </Link>
-
-      <Link aria-label="Instagram" href="https://www.instagram.com/opedrosr" target="_blank">
-        <Icon>
-          <InstagramIcon />
-        </Icon>
-      </Link>
       
     </Icons>
   );
